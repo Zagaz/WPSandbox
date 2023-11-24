@@ -31,10 +31,10 @@ function Edit() {
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/index.jsx":
+/*!***********************!*\
+  !*** ./src/index.jsx ***!
+  \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -44,16 +44,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
+/* harmony import */ var _zaz_static_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-static-block */ "./src/zaz-static-block/index.jsx");
 
 
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
-  ..._block_json__WEBPACK_IMPORTED_MODULE_4__,
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
-});
+
+
+// registerBlockType( metadata.name, {
+// 	...metadata,
+// 	edit: Edit,
+// 	save,
+// } );
 
 /***/ }),
 
@@ -78,6 +81,50 @@ function save() {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, 'Myblocks – hello from the saved content!333');
 }
+
+/***/ }),
+
+/***/ "./src/zaz-static-block/index.jsx":
+/*!****************************************!*\
+  !*** ./src/zaz-static-block/index.jsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+// insert icon here
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (registerBlockType('myblocks/static-block', {
+  title: __('ZAZ - Static Block', 'myblocks'),
+  description: __('A static block', 'myblocks'),
+  category: 'common',
+  icon: 'smiley',
+  keywords: [__('ZAZ', 'myblocks'), __('Static', 'myblocks'), __('Block', 'myblocks')],
+  edit: props => {
+    //This is where the props are destructured
+    const {
+      className,
+      isSelected
+    } = props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: className
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Backend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Click on this box"), isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "This message is only visible if block is selected"))));
+  },
+  save: props => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Frontend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, __('This is the Static Block and you\'re on the Frontend now!'))));
+  }
+}));
 
 /***/ }),
 
@@ -316,7 +363,7 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/index.jsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
