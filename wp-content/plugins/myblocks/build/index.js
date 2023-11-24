@@ -84,6 +84,39 @@ function save() {
 
 /***/ }),
 
+/***/ "./src/zaz-static-block/icon.jsx":
+/*!***************************************!*\
+  !*** ./src/zaz-static-block/icon.jsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Icon() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "170.667",
+    height: "170.667",
+    version: "1",
+    viewBox: "0 0 128 128"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M0 650V150h1270v1000H0V650zm128 444c2-11-4-26-12-33-31-26-71 14-45 45 17 21 53 14 57-12zm90-6c2-19-2-28-18-33-37-12-64 27-38 53 21 21 53 10 56-20zm87-3c0-25-4-30-24-30-32 0-49 28-31 50 7 9 23 15 34 13 16-2 21-10 21-33zm935-480V190H40v830h1200V605z",
+    transform: "matrix(.1 0 0 -.1 0 128)"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M620 614c-47-107-86-200-88-208-3-16 27-31 39-19 9 9 180 395 177 398-2 1-12 7-23 13-19 9-26-4-105-184zM318 697c-65-40-117-79-117-87-1-9 48-44 115-83 108-63 117-67 129-50 7 10 11 21 9 25-3 4-43 29-89 55-47 26-85 51-85 54 0 4 33 26 73 49 111 66 107 62 93 87-11 21-14 20-128-50zM829 749c-6-12-8-23-6-26 3-3 45-29 93-58l86-53-91-53c-91-54-103-67-78-87 10-9 42 6 130 59 64 39 117 74 117 79 0 4-54 42-120 84-114 72-120 74-131 55z",
+    transform: "matrix(.1 0 0 -.1 0 128)"
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Icon);
+
+/***/ }),
+
 /***/ "./src/zaz-static-block/index.jsx":
 /*!****************************************!*\
   !*** ./src/zaz-static-block/index.jsx ***!
@@ -97,6 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-static-block/style.scss");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon */ "./src/zaz-static-block/icon.jsx");
+
 
 
 const {
@@ -109,7 +144,7 @@ const {
   title: __('ZAZ - Static Block', 'myblocks'),
   description: __('A static block', 'myblocks'),
   category: 'common',
-  icon: 'smiley',
+  icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_icon__WEBPACK_IMPORTED_MODULE_2__["default"], null),
   keywords: [__('ZAZ', 'myblocks'), __('Static', 'myblocks'), __('Block', 'myblocks')],
   edit: props => {
     //This is where the props are destructured

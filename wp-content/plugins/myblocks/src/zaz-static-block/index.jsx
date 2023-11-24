@@ -1,4 +1,5 @@
 import './style.scss';
+import Icon from './icon';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -7,7 +8,7 @@ export default registerBlockType('myblocks/static-block', {
      title: __('ZAZ - Static Block', 'myblocks'),
      description: __('A static block', 'myblocks'),
      category: 'common',
-     icon: 'smiley',
+     icon: <Icon />,
      keywords: [
           __('ZAZ', 'myblocks'),
           __('Static', 'myblocks'),
