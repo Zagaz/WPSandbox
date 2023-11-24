@@ -3,8 +3,8 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText } = wp.blockEditor;
-
 import Icon from './icon.jsx';
+import './style.scss';
 // end replace
 
 registerBlockType( 'myblocks/richtext', {
@@ -33,7 +33,7 @@ registerBlockType( 'myblocks/richtext', {
                       onChange={ onChangeContent }
                       placeholder={ __( 'Add your custom text', 'myblock' ) }     
                       
-                      value={ content }
+                      value={ content } 
                      />
                </div>
             );

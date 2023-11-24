@@ -118,6 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _icon_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon.jsx */ "./src/zaz-richtext-block/icon.jsx");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-richtext-block/style.scss");
 
 // make a block with a richtext field
 // // --------------------------------------------------
@@ -130,6 +131,7 @@ const {
 const {
   RichText
 } = wp.blockEditor;
+
 
 // end replace
 
@@ -194,13 +196,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-static-block/style.scss");
 
-
 const {
   __
 } = wp.i18n;
 const {
   registerBlockType
 } = wp.blocks;
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (registerBlockType('myblocks/static-block', {
   title: __('ZAZ - Static Block', 'myblocks'),
   description: __('A static block', 'myblocks'),
@@ -234,13 +236,8 @@ const {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-textaligntoollbar-block/style.scss");
 
-// A richtext with a toolbar to align text
-// --------------------------------------------------
-// const { __ } = wp.i18n;
-// import { registerBlockType } from '@wordpress/blocks';
-// import { RichText, AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
-// replace the line above as constants
 const {
   __
 } = wp.i18n;
@@ -252,7 +249,6 @@ const {
   AlignmentToolbar,
   BlockControls
 } = wp.blockEditor;
-// end replace
 
 registerBlockType('myblocks/textaligntoollbar', {
   title: __('ZAZ - Text Align Toolbar', 'myblocks'),
@@ -337,10 +333,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/zaz-richtext-block/style.scss":
+/*!*******************************************!*\
+  !*** ./src/zaz-richtext-block/style.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/zaz-static-block/style.scss":
 /*!*****************************************!*\
   !*** ./src/zaz-static-block/style.scss ***!
   \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/zaz-textaligntoollbar-block/style.scss":
+/*!****************************************************!*\
+  !*** ./src/zaz-textaligntoollbar-block/style.scss ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

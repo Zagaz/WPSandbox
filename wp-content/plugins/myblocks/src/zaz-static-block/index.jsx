@@ -1,7 +1,8 @@
-import './style.scss';
-
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
+
+import './style.scss';
+
 
 export default registerBlockType('myblocks/static-block', {
      title: __('ZAZ - Static Block', 'myblocks'),
@@ -20,7 +21,7 @@ export default registerBlockType('myblocks/static-block', {
 
           return (
                <>
-                    <div className = { className } >
+                    <div className={className} >
                          <h2>{__('This is the Backend title', 'myBlocks')}</h2>
                          <p>Click on this box</p>
                          {isSelected && (
