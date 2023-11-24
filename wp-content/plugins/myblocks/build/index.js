@@ -45,6 +45,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
 /* harmony import */ var _zaz_static_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-static-block */ "./src/zaz-static-block/index.jsx");
 /* harmony import */ var _zaz_richtext_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-richtext-block */ "./src/zaz-richtext-block/index.jsx");
+/* harmony import */ var _zaz_textaligntoollbar_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-textaligntoollbar-block */ "./src/zaz-textaligntoollbar-block/index.jsx");
+
 
 
 
@@ -115,29 +117,31 @@ function Icon() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon */ "./src/zaz-richtext-block/icon.jsx");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-richtext-block/style.scss");
+/* harmony import */ var _icon_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon.jsx */ "./src/zaz-richtext-block/icon.jsx");
 
+// make a block with a richtext field
+// // --------------------------------------------------
+const {
+  __
+} = wp.i18n;
 const {
   registerBlockType
 } = wp.blocks;
 const {
   RichText
 } = wp.blockEditor;
-const {
-  __
-} = wp.i18n;
 
+// end replace
 
-registerBlockType('myblocks/richtext-block', {
-  title: 'ZAZ - Richtext Block',
-  icon: _icon__WEBPACK_IMPORTED_MODULE_1__["default"],
+registerBlockType('myblocks/richtext', {
+  title: __('ZAZ - RichText', 'myblocks'),
+  icon: _icon_jsx__WEBPACK_IMPORTED_MODULE_1__["default"],
   category: 'common',
   attributes: {
     content: {
       type: 'array',
       source: 'children',
-      selector: '.content'
+      selector: 'p'
     }
   },
   edit: props => {
@@ -153,28 +157,26 @@ registerBlockType('myblocks/richtext-block', {
         content: newContent
       });
     };
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Backend: ", __('Richtext Block', 'myblock')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: className
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "     Backend: ", __('RichText', 'myblocks'), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
       tagName: "p",
       className: className,
       onChange: onChangeContent,
-      value: content,
-      placeholder: __('Add your custom text', 'myblock')
+      placeholder: __('Add your custom text', 'myblock'),
+      value: content
     }));
   },
   save: props => {
-    const {
-      attributes: {
-        content
-      }
-    } = props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Frontend: ", __('Richtext Block', 'myblock')), content && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "content"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "     Frontend: ", __('RichText', 'myblocks'), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
       tagName: "p",
-      value: content
-    })));
+      value: props.attributes.content
+    }));
   }
 });
+// // --------------------------------------------------
+//
+//
 
 /***/ }),
 
@@ -223,22 +225,110 @@ const {
 
 /***/ }),
 
+/***/ "./src/zaz-textaligntoollbar-block/index.jsx":
+/*!***************************************************!*\
+  !*** ./src/zaz-textaligntoollbar-block/index.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+// A richtext with a toolbar to align text
+// --------------------------------------------------
+// const { __ } = wp.i18n;
+// import { registerBlockType } from '@wordpress/blocks';
+// import { RichText, AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
+// replace the line above as constants
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  RichText,
+  AlignmentToolbar,
+  BlockControls
+} = wp.blockEditor;
+// end replace
+
+registerBlockType('myblocks/textaligntoollbar', {
+  title: __('ZAZ - Text Align Toolbar', 'myblocks'),
+  icon: 'editor-alignleft',
+  category: 'common',
+  attributes: {
+    content: {
+      type: 'array',
+      source: 'children',
+      selector: 'p'
+    },
+    alignment: {
+      type: 'string',
+      default: 'none'
+    }
+  },
+  edit: props => {
+    const {
+      attributes: {
+        content,
+        alignment
+      },
+      setAttributes,
+      className
+    } = props;
+    const onChangeContent = newContent => {
+      setAttributes({
+        content: newContent
+      });
+    };
+    const onChangeAlignment = newAlignment => {
+      setAttributes({
+        alignment: newAlignment === undefined ? 'none' : newAlignment
+      });
+    };
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: className
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "     Backend: ", __('Text Align Toolbar', 'myblocks'), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(AlignmentToolbar, {
+      value: alignment,
+      onChange: onChangeAlignment
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      tagName: "p",
+      className: className,
+      style: {
+        textAlign: alignment
+      },
+      onChange: onChangeContent,
+      placeholder: __('Add your custom text', 'myblock'),
+      value: content
+    }));
+  },
+  save: props => {
+    const {
+      attributes: {
+        content,
+        alignment
+      },
+      className
+    } = props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Frontend: ", __('Text Align Toolbar', 'myblocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      tagName: "p",
+      className: className,
+      value: content,
+      style: {
+        textAlign: alignment
+      }
+    })));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/editor.scss":
 /*!*************************!*\
   !*** ./src/editor.scss ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/zaz-richtext-block/style.scss":
-/*!*******************************************!*\
-  !*** ./src/zaz-richtext-block/style.scss ***!
-  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

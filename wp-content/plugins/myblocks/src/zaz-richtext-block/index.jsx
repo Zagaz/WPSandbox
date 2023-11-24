@@ -1,58 +1,55 @@
+// make a block with a richtext field
+// // --------------------------------------------------
+const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText } = wp.blockEditor;
-const { __ } = wp.i18n;
 
-import Icon from './icon';
-import './style.scss';
+import Icon from './icon.jsx';
+// end replace
 
-
-registerBlockType( 'myblocks/richtext-block', {
-     title: 'ZAZ - Richtext Block',
+registerBlockType( 'myblocks/richtext', {
+     title: __( 'ZAZ - RichText', 'myblocks' ),   
      icon: Icon,
      category: 'common',
      attributes: {
-          content: {
-               type: 'array',
-               source: 'children',
-               selector: '.content',
-          },
+        content: {
+            type: 'array',
+            source: 'children',
+            selector: 'p',
+        },
      },
+
      edit: ( props ) => {
-          const { attributes: { content }, setAttributes, className } = props;
-          const onChangeContent = ( newContent ) => {
+            const { attributes: { content }, setAttributes, className } = props;
+            const onChangeContent = ( newContent ) => {
                setAttributes( { content: newContent } );
-          };
-          return (
-               <>
-               <h2>Backend: {__('Richtext Block', 'myblock')}</h2>
-               <RichText
-                    tagName="p"
-                    className={ className }
-                    onChange={ onChangeContent }
-                    value={ content }
-                    placeholder={ __( 'Add your custom text', 'myblock' ) }     
-               />
-               </>
-          );
+            };
+            return (
+               <div className={ className }>
+                         <h2>     Backend: {__( 'RichText', 'myblocks' )} </h2>
+                     <RichText
+                      tagName="p"
+                      className={ className }
+                      onChange={ onChangeContent }
+                      placeholder={ __( 'Add your custom text', 'myblock' ) }     
+                      
+                      value={ content }
+                     />
+               </div>
+            );
      },
      save: ( props ) => {
-          const { attributes: { content } } = props;
-          return (
-               <>
-               <h2>
-                    Frontend: {__('Richtext Block', 'myblock')}
-                    </h2>
-               {
-                    content && (
-                         <div className="content">
-                              <RichText.Content
-                                   tagName="p"
-                                   value={ content }
-                              />
-                         </div>
-                    )
-               }
-               </>
-          );
+            return (
+               <div>
+                     <h2>     Frontend: {__( 'RichText', 'myblocks' )} </h2>
+                     <RichText.Content
+                      tagName="p"
+                      value={ props.attributes.content }
+                     />
+               </div>
+            );
      },
-     } );
+} );
+// // --------------------------------------------------
+//
+//
