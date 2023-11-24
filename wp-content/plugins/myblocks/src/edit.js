@@ -6,7 +6,7 @@ export default function Edit() {
 	
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Myblocks – hello from the editor!!!!', 'myblocks' ) }
+			{ __( 'Myblocks – hello from the editor!qq', 'myblocks' ) }
 		</p>
 	);
 }
