@@ -1,4 +1,4 @@
-// insert icon here
+import './style.scss';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -43,3 +43,4 @@ export default registerBlockType('myblocks/static-block', {
           )
      }
 });
+//Done
