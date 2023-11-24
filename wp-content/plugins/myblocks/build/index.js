@@ -96,8 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-static-block/style.scss");
 
-// insert icon here
 
 const {
   __
@@ -119,7 +119,9 @@ const {
     } = props;
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: className
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Backend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Click on this box"), isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "This message is only visible if block is selected"))));
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Backend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Click on this box"), isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "alert"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "This message is only visible if block is selected"))));
   },
   save: props => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Frontend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, __('This is the Static Block and you\'re on the Frontend now!'))));
@@ -144,6 +146,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./src/style.scss ***!
   \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/zaz-static-block/style.scss":
+/*!*****************************************!*\
+  !*** ./src/zaz-static-block/style.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

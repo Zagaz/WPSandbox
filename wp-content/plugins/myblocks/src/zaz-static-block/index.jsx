@@ -1,4 +1,4 @@
-// insert icon here
+import './style.scss';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -17,14 +17,15 @@ export default registerBlockType('myblocks/static-block', {
      edit: props => {
           //This is where the props are destructured
           const { className, isSelected } = props;
-
+              
           return (
                <>
                     <div className = { className } >
                          <h2>{__('This is the Backend title', 'myBlocks')}</h2>
                          <p>Click on this box</p>
+
                          {isSelected && (
-                              <p>
+                              <p className='alert'>
                                    <strong>This message is only visible if block is selected</strong>
                               </p>
                          )}
