@@ -6,6 +6,7 @@ import metadata from './block.json';
 import "./zaz-static-block";
 
 import "./zaz-richtext-block";
+import "./zaz-textaligntoollbar-block";
 
 
 
