@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 import './style.scss';
 import Icon from './icon';
 
-=======
->>>>>>> b63be8b1a236018ad159d558cf8219d066cae34a
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
