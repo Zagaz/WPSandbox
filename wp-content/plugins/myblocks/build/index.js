@@ -46,6 +46,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _zaz_static_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-static-block */ "./src/zaz-static-block/index.jsx");
 /* harmony import */ var _zaz_richtext_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-richtext-block */ "./src/zaz-richtext-block/index.jsx");
 /* harmony import */ var _zaz_textaligntoollbar_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-textaligntoollbar-block */ "./src/zaz-textaligntoollbar-block/index.jsx");
+/* harmony import */ var _zaz_inspectorcontrol_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./zaz-inspectorcontrol-block */ "./src/zaz-inspectorcontrol-block/index.jsx");
+
 
 
 
@@ -77,6 +79,71 @@ function save() {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, 'Myblocks – hello from the saved content!333');
 }
+
+/***/ }),
+
+/***/ "./src/zaz-inspectorcontrol-block/index.jsx":
+/*!**************************************************!*\
+  !*** ./src/zaz-inspectorcontrol-block/index.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+
+// Block with one plain text
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('myblock/richtext-block', {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('ZAZ -  Richtext Block', 'myblocks'),
+  icon: 'editor-textcolor',
+  category: 'common',
+  attributes: {
+    title: {
+      type: 'string',
+      source: 'html',
+      selector: 'p'
+    }
+  },
+  edit: props => {
+    const {
+      attributes: {
+        title
+      },
+      setAttributes,
+      className
+    } = props;
+    const onChangeTitle = newTitle => {
+      setAttributes({
+        title: newTitle
+      });
+    };
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: className
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Title', 'myblocks'),
+      value: title,
+      onChange: onChangeTitle
+    }));
+  },
+  save: props => {
+    const {
+      attributes: {
+        title
+      }
+    } = props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, "Frontend title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, title)));
+  }
+});
 
 /***/ }),
 
@@ -431,6 +498,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 
