@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+import './style.scss';
+import Icon from './icon';
+
+=======
+>>>>>>> b63be8b1a236018ad159d558cf8219d066cae34a
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
@@ -8,7 +14,7 @@ export default registerBlockType('myblocks/static-block', {
      title: __('ZAZ - Static Block', 'myblocks'),
      description: __('A static block', 'myblocks'),
      category: 'common',
-     icon: 'smiley',
+     icon: <Icon />,
      keywords: [
           __('ZAZ', 'myblocks'),
           __('Static', 'myblocks'),
@@ -18,14 +24,15 @@ export default registerBlockType('myblocks/static-block', {
      edit: props => {
           //This is where the props are destructured
           const { className, isSelected } = props;
-
+              
           return (
                <>
                     <div className={className} >
                          <h2>{__('This is the Backend title', 'myBlocks')}</h2>
                          <p>Click on this box</p>
+
                          {isSelected && (
-                              <p>
+                              <p className='alert'>
                                    <strong>This message is only visible if block is selected</strong>
                               </p>
                          )}

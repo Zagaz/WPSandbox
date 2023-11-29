@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/edit.js":
@@ -8,6 +7,7 @@
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -37,6 +37,7 @@ function Edit() {
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -62,6 +63,7 @@ __webpack_require__.r(__webpack_exports__);
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ save)
@@ -86,6 +88,7 @@ function save() {
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -114,6 +117,7 @@ function Icon() {
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -186,44 +190,9 @@ registerBlockType('myblocks/richtext', {
 /*!****************************************!*\
   !*** ./src/zaz-static-block/index.jsx ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-static-block/style.scss");
-
-const {
-  __
-} = wp.i18n;
-const {
-  registerBlockType
-} = wp.blocks;
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (registerBlockType('myblocks/static-block', {
-  title: __('ZAZ - Static Block', 'myblocks'),
-  description: __('A static block', 'myblocks'),
-  category: 'common',
-  icon: 'smiley',
-  keywords: [__('ZAZ', 'myblocks'), __('Static', 'myblocks'), __('Block', 'myblocks')],
-  edit: props => {
-    //This is where the props are destructured
-    const {
-      className,
-      isSelected
-    } = props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: className
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Backend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Click on this box"), isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "This message is only visible if block is selected"))));
-  },
-  save: props => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('This is the Frontend title', 'myBlocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, __('This is the Static Block and you\'re on the Frontend now!'))));
-  }
-}));
-//Done
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/andre/dev/WPSandbox/wp-content/plugins/myblocks/src/zaz-static-block/index.jsx: Unexpected token (1:1)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m'./style.scss'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mIcon\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'./icon'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n    at constructor (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:356:19)\n    at JSXParserMixin.raise (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:3223:19)\n    at JSXParserMixin.unexpected (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:3253:16)\n    at JSXParserMixin.jsxParseIdentifier (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6725:12)\n    at JSXParserMixin.jsxParseNamespacedName (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6732:23)\n    at JSXParserMixin.jsxParseElementName (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6741:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6821:22)\n    at JSXParserMixin.jsxParseElementAt (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6846:33)\n    at JSXParserMixin.jsxParseElement (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6915:17)\n    at JSXParserMixin.parseExprAtom (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6927:19)\n    at JSXParserMixin.parseExprSubscripts (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10857:23)\n    at JSXParserMixin.parseUpdate (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10840:21)\n    at JSXParserMixin.parseMaybeUnary (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10816:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10654:61)\n    at JSXParserMixin.parseExprOps (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10659:23)\n    at JSXParserMixin.parseMaybeConditional (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10636:23)\n    at JSXParserMixin.parseMaybeAssign (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10597:21)\n    at JSXParserMixin.parseExpressionBase (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10551:23)\n    at /home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10547:39\n    at JSXParserMixin.allowInAnd (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12279:16)\n    at JSXParserMixin.parseExpression (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10547:17)\n    at JSXParserMixin.parseStatementContent (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12737:23)\n    at JSXParserMixin.parseStatementLike (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12588:17)\n    at JSXParserMixin.parseModuleItem (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12565:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:13189:36)\n    at JSXParserMixin.parseBlockBody (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:13182:10)\n    at JSXParserMixin.parseProgram (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12464:10)\n    at JSXParserMixin.parseTopLevel (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12454:25)\n    at JSXParserMixin.parse (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:14376:10)\n    at parse (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:14417:38)\n    at parser (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/transform.js:22:33)\n    at transform.next (<anonymous>)\n    at step (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/gensync/index.js:261:32)\n    at /home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/gensync/index.js:223:11)");
 
 /***/ }),
 
@@ -233,6 +202,7 @@ const {
   \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -327,6 +297,7 @@ registerBlockType('myblocks/textaligntoollbar', {
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -339,18 +310,7 @@ __webpack_require__.r(__webpack_exports__);
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/zaz-static-block/style.scss":
-/*!*****************************************!*\
-  !*** ./src/zaz-static-block/style.scss ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -363,6 +323,7 @@ __webpack_require__.r(__webpack_exports__);
   \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -375,6 +336,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = window["React"];
 
 /***/ }),
@@ -385,6 +347,7 @@ module.exports = window["React"];
   \*************************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -395,6 +358,7 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = window["wp"]["blocks"];
 
 /***/ }),
@@ -405,6 +369,7 @@ module.exports = window["wp"]["blocks"];
   \******************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = window["wp"]["i18n"];
 
 /***/ }),
@@ -415,6 +380,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/myblocks","version":"0.1.0","title":"Myblocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"myblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
