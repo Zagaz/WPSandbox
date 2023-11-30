@@ -1,7 +1,10 @@
 // Block with one plain text
 
 import { registerBlockType} from '@wordpress/blocks';
-import { TextControl } from '@wordpress/components';
+
+import { RichText, 	BlockControls , AlignmentToolbar ,
+     TextTransformControl
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
     
@@ -16,36 +19,67 @@ import { __ } from '@wordpress/i18n';
                      source: 'html',
                      selector: 'p',
                 },
+                alignment: {
+                    type: 'string',
+                
+                },
+                    transform: {
+                         type: 'string',
+                      
+                    },
+
               
            },
            edit: ( props ) => {
-                const { attributes: { title }, setAttributes, className } = props;
+                const { attributes: { title , alignment, transform}, setAttributes, className } = props;
                 const onChangeTitle = ( newTitle ) => {
-                     setAttributes( { title: newTitle } );
+                     setAttributes( { title : newTitle } );
                 };
+                const onChangeAlignment = ( newAlignment ) => {
+                    setAttributes( { alignment : newAlignment } );
+               }
+               const onChangeTransform = ( newTransform ) => {
+                    setAttributes( { transform : newTransform } );
+               }
+
+
+
+             
 
                 return (
-                     <div className={ className }>
-                         <TextControl
+                    
+                     <div >
+                         {/* <// BlockControls> */}
+                         <BlockControls>
+                         <AlignmentToolbar
+                               value={ alignment }
+                               onChange={ onChangeAlignment }
+                         />
+                      
+
+                         </BlockControls>
+
+                         <RichText
                          label = { __( 'Title', 'myblocks' ) }
                          value = { title }
+                         style = { { textAlign: alignment } }
                          onChange = { onChangeTitle }     
                          />
-                    
-
-                         
-                       
+                         {className}
+  
                      </div>
                 );
            },
            save: ( props ) => {
-                const { attributes: { title } } = props;
+                    const { attributes: { title , alignment  } } = props;
+         
                 return (
                     <>
-                     <div>
-                         <h4>Frontend title</h4>
-                          <h3>{ title }</h3>
-                     </div>
+                    <h1 style = { { textAlign : alignment } }>{ title }</h1>
+
+                    
+               
+                   
                      </>
                 );
            },
