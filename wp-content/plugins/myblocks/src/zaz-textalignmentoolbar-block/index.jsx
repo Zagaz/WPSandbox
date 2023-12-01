@@ -99,7 +99,7 @@ registerBlockType('myblocks/zaz-textalignmentoolbar-block', {
                               className={`gutenberg-examples-align-${props.attributes.alignment}`}
                               tagName="h1"
                               value="Title"
-                         />
+                              wp-block-myblocks-zaz-textalignmentoolbar-block           />
                     }
                     <RichText.Content
                          className={`gutenberg-examples-align-${props.attributes.alignment} title`}

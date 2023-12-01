@@ -295,7 +295,8 @@ __webpack_require__.r(__webpack_exports__);
     }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       className: `gutenberg-examples-align-${props.attributes.alignment}`,
       tagName: "h1",
-      value: "Title"
+      value: "Title",
+      "wp-block-myblocks-zaz-textalignmentoolbar-block": true
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       className: `gutenberg-examples-align-${props.attributes.alignment} title`,
       tagName: "p",
