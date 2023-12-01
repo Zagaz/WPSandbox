@@ -13,89 +13,118 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('zaz-inspectorcontrol/myblocks', {
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('gutenberg-examples/example-03-editable-esnext', {
   apiVersion: 3,
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('ZAZ - Test', 'myblocks'),
+  title: 'AAA',
   icon: 'universal-access-alt',
-  attributes: {
-    message: {
-      type: 'string',
-      source: 'text',
-      selector: 'div',
-      default: '' // empty default
-    },
-
-    bg_color: {
-      type: 'string',
-      default: '#000000'
-    },
-    text_color: {
-      type: 'string',
-      default: '#ffffff'
+  category: 'design',
+  supports: {
+    color: {
+      background: true
     }
   },
-  edit: ({
-    attributes,
-    setAttributes
-  }) => {
+  attributes: {
+    content: {
+      type: 'string',
+      source: 'html',
+      selector: 'p'
+    },
+    style: {
+      type: 'object',
+      default: {
+        color: {
+          background: '#fff'
+        }
+      }
+    }
+  },
+  example: {
+    attributes: {
+      content: 'Hello World'
+    }
+  },
+  edit: props => {
+    const {
+      attributes: {
+        content
+      },
+      setAttributes,
+      className
+    } = props;
+    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+    const onChangeContent = newContent => {
+      setAttributes({
+        content: newContent
+      });
+    };
     const onChangeBGColor = hexColor => {
       setAttributes({
-        bg_color: hexColor
+        style: {
+          color: {
+            background: hexColor
+          }
+        }
       });
     };
-    const onChangeTextColor = hexColor => {
-      setAttributes({
-        text_color: hexColor
-      });
-    };
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)()
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, {
+    const [color, setColor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('#f00');
+    const colors = [{
+      name: 'red',
+      color: '#f00'
+    }, {
+      name: 'white',
+      color: '#fff'
+    }, {
+      name: 'blue',
+      color: '#00f'
+    }, {
+      name: 'black',
+      color: '#000'
+    }, {
+      name: 'green',
+      color: '#0f0'
+    }];
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
       key: "setting"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       id: "gutenpride-controls"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
       className: "blocks-base-control__label"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Background color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.ColorPalette // Element Tag for Gutenberg standard colour selector
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Background color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+      colors: colors,
+      value: color,
+      onChange: color => setColor(color)
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorIndicator // Element Tag for Gutenberg standard colour selector
+    //  onChange={ onChangeBGColor } // onChange event callback
     , {
-      onChange: onChangeBGColor // onChange event callback
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
-      className: "blocks-base-control__label"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.ColorPalette // Element Tag for Gutenberg standard colour selector
-    , {
-      onChange: onChangeTextColor // onChange event callback
-    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      value: attributes.message,
-      onChange: val => setAttributes({
-        message: val
-      }),
-      style: {
-        backgroundColor: attributes.bg_color,
-        color: attributes.text_color
-      }
+      colorValue: color
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      ...blockProps,
+      tagName: "p",
+      onChange: onChangeContent,
+      value: content
     }));
   },
-  save: ({
-    attributes
-  }) => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps.save(),
-      style: {
-        backgroundColor: attributes.bg_color,
-        color: attributes.text_color
-      }
-    }, attributes.message);
+  save: props => {
+    const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save();
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      ...blockProps,
+      tagName: "p",
+      value: props.attributes.content
+    });
   }
 });
 
@@ -455,6 +484,16 @@ module.exports = window["wp"]["blocks"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["element"];
 
 /***/ }),
 

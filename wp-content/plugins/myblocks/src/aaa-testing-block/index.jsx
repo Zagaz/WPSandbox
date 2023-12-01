@@ -1,86 +1,104 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
+import { ColorIndicator, ColorPicker, ColorPalette } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { TextControl } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 
-import {
-    useBlockProps,
-    ColorPalette,
-    InspectorControls,
-} from '@wordpress/block-editor';
-
-registerBlockType( 'zaz-inspectorcontrol/myblocks', {
+registerBlockType('gutenberg-examples/example-03-editable-esnext', {
     apiVersion: 3,
-     title: __( 'ZAZ - Test', 'myblocks' ),
-     icon: 'universal-access-alt',
-    attributes: {
-        message: {
-            type: 'string',
-            source: 'text',
-            selector: 'div',
-            default: '', // empty default
-        },
-        bg_color: {
-               type: 'string', 
-               default: '#000000' },
-        text_color: {
-           type: 'string',
-            default: '#ffffff' },
+    title: 'AAA',
+    icon: 'universal-access-alt',
+    category: 'design',
+    supports: {
+        color: {
+            background: true,
+        }
     },
-    edit: ( { attributes, setAttributes } ) => {
-        const onChangeBGColor = ( hexColor ) => {
-            setAttributes( { bg_color: hexColor } );
+    attributes: {
+        content: {
+            type: 'string',
+            source: 'html',
+            selector: 'p',
+        },
+        style: {
+            type: 'object',
+            default: {
+                color: {
+                    background: '#fff',
+                }
+            }
+        }
+    },
+    example: {
+        attributes: {
+            content: 'Hello World',
+        },
+    },
+    edit: (props) => {
+        const {
+            attributes: { content },
+            setAttributes,
+            className,
+        } = props;
+        const blockProps = useBlockProps();
+        const onChangeContent = (newContent) => {
+            setAttributes({ content: newContent });
         };
+        const onChangeBGColor = (hexColor) => {
+            setAttributes({ style: { color: { background: hexColor } } });
+        }
+        const [color, setColor] = useState('#f00')
+        const colors = [
+            { name: 'red', color: '#f00' },
+            { name: 'white', color: '#fff' },
+            { name: 'blue', color: '#00f' },
+            { name: 'black', color: '#000' },
+            { name: 'green', color: '#0f0' },
 
-        const onChangeTextColor = ( hexColor ) => {
-            setAttributes( { text_color: hexColor } );
-        };
+        ];
 
         return (
-            <div { ...useBlockProps() }>
-                <InspectorControls key="setting">
+            <>
+                <InspectorControls
+                    key="setting">
                     <div id="gutenpride-controls">
                         <fieldset>
                             <legend className="blocks-base-control__label">
-                                { __( 'Background color', 'gutenpride' ) }
+                                {__('Background color', 'gutenpride')}
                             </legend>
-                            <ColorPalette // Element Tag for Gutenberg standard colour selector
-                                onChange={ onChangeBGColor } // onChange event callback
+                            <ColorPalette
+                                colors={colors}
+                                value={color}
+                                onChange={(color) => setColor(color)}
                             />
-                        </fieldset>
-                        <fieldset>
-                            <legend className="blocks-base-control__label">
-                                { __( 'Text color', 'gutenpride' ) }
-                            </legend>
-                            <ColorPalette // Element Tag for Gutenberg standard colour selector
-                                onChange={ onChangeTextColor } // onChange event callback
-                            />
+
                         </fieldset>
                     </div>
                 </InspectorControls>
+                <ColorIndicator // Element Tag for Gutenberg standard colour selector
+                    //  onChange={ onChangeBGColor } // onChange event callback
+                    colorValue={color}
 
 
-                <TextControl
-                    value={ attributes.message }
-                    onChange={ ( val ) => setAttributes( { message: val } ) }
-                    style={ {
-                        backgroundColor: attributes.bg_color,
-                        color: attributes.text_color,
-                    } }
                 />
-            </div>
+
+                <RichText
+                    {...blockProps}
+                    tagName="p"
+                    onChange={onChangeContent}
+                    value={content}
+                />
+            </>
         );
     },
-    save: ( { attributes } ) => {
+    save: (props) => {
+        const blockProps = useBlockProps.save();
         return (
-            <div
-                { ...useBlockProps.save() }
-                style={ {
-                    backgroundColor: attributes.bg_color,
-                    color: attributes.text_color,
-                } }
-            >
-                { attributes.message }
-            </div>
+            <RichText.Content
+                {...blockProps}
+                tagName="p"
+                value={props.attributes.content}
+            />
         );
     },
-} );
+});
