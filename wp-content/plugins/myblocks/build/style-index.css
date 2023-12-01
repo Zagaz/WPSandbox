@@ -1,45 +1,18 @@
-/*!********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/zaz-static-block/style.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.wp-block-myblocks-static-block {
-  background-color: #ffebeb;
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/zaz-textalignmentoolbar-block/style.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-myblocks-aaa-testing-block {
+  background-color: ivory;
   padding: 20px;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-}
-.wp-block-myblocks-static-block .alert {
-  background-color: rgb(182, 72, 72);
-  color: #fff;
-}
-/*!**********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/zaz-richtext-block/style.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.wp-block-zaz-richtext-block {
-  background-color: #f3f3f3;
-  padding: 20px;
+  border: 1px solid lightseagreen;
   border-radius: 5px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
 }
-/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/zaz-textaligntoollbar-block/style.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.wp-block-myblocks-aaa-testing-block .rich-text-custom-style {
+  white-space: pre-wrap;
+  min-width: 1px;
+  background-color: white;
+  border-bottom: 1px solid deepskyblue;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
