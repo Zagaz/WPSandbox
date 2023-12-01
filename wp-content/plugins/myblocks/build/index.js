@@ -17,116 +17,95 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('gutenberg-examples/example-03-editable-esnext', {
-  apiVersion: 3,
-  title: 'AAA',
-  icon: 'universal-access-alt',
-  category: 'design',
-  supports: {
-    color: {
-      background: true
-    }
-  },
+// Register the block
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('your-plugin/your-block', {
+  title: 'Custom Block',
+  icon: 'editor-textcolor',
+  category: 'common',
   attributes: {
     content: {
-      type: 'string',
-      source: 'html',
+      type: 'array',
+      source: 'children',
       selector: 'p'
     },
-    style: {
-      type: 'object',
-      default: {
-        color: {
-          background: '#fff'
-        }
-      }
+    backgroundColor: {
+      type: 'string',
+      default: '#ffffff' // default background color
+    },
+
+    textColor: {
+      type: 'string',
+      default: '#000000' // default text color
     }
   },
-  example: {
-    attributes: {
-      content: 'Hello World'
-    }
-  },
-  edit: props => {
+
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
     const {
-      attributes: {
-        content
-      },
-      setAttributes,
-      className
-    } = props;
-    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-    const onChangeContent = newContent => {
-      setAttributes({
-        content: newContent
-      });
-    };
-    const [colorText, setColorText] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('#000');
-    const [colorBG, setColorBG] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('#fff');
-    const colors = [{
-      name: 'red',
-      color: '#f00'
-    }, {
-      name: 'white',
-      color: '#fff'
-    }, {
-      name: 'blue',
-      color: '#00f'
-    }, {
-      name: 'black',
-      color: '#000'
-    }, {
-      name: 'green',
-      color: '#0f0'
-    }];
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
-      key: "setting"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      id: "gutenpride-controls"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
-      className: "blocks-base-control__label"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('TEXT', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
-      colors: colors,
-      value: colorText,
-      onChange: color => setColorText(color)
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
-      className: "blocks-base-control__label"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('BACKGROUND', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
-      colors: colors,
-      value: colorBG,
-      onChange: color => setColorBG(color)
-    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-      ...blockProps,
-      tagName: "p",
-      onChange: onChangeContent,
-      value: content,
+      content,
+      backgroundColor,
+      textColor
+    } = attributes;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       style: {
-        backgroundColor: colorBG,
-        color: colorText
+        backgroundColor,
+        color: textColor,
+        padding: '20px'
       }
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Background: ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorIndicator, {
-      colorValue: colorBG
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), "Text : ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorIndicator, {
-      colorValue: colorText
-    })));
-  },
-  save: props => {
-    const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save();
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
-      ...blockProps,
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      title: "Color Settings"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+      title: "Background Color",
+      colorSettings: [{
+        label: 'Choose Background Color',
+        value: backgroundColor,
+        onChange: newColor => setAttributes({
+          backgroundColor: newColor
+        })
+      }]
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+      title: "Text Color",
+      colorSettings: [{
+        label: 'Choose Text Color',
+        value: textColor,
+        onChange: newColor => setAttributes({
+          textColor: newColor
+        })
+      }]
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       tagName: "p",
-      value: props.attributes.content
-    });
+      value: content,
+      onChange: newContent => setAttributes({
+        content: newContent
+      })
+    }));
+  },
+  save: ({
+    attributes
+  }) => {
+    const {
+      content,
+      backgroundColor,
+      textColor
+    } = attributes;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        backgroundColor,
+        textColor,
+        padding: '20px'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      tagName: "p",
+      value: content
+    }));
   }
 });
 
@@ -486,16 +465,6 @@ module.exports = window["wp"]["blocks"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["components"];
-
-/***/ }),
-
-/***/ "@wordpress/element":
-/*!*********************************!*\
-  !*** external ["wp","element"] ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = window["wp"]["element"];
 
 /***/ }),
 
