@@ -71,16 +71,8 @@ __webpack_require__.r(__webpack_exports__);
         content: newContent
       });
     };
-    const onChangeBGColor = hexColor => {
-      setAttributes({
-        style: {
-          color: {
-            background: hexColor
-          }
-        }
-      });
-    };
-    const [color, setColor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('#f00');
+    const [colorText, setColorText] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('#000');
+    const [colorBG, setColorBG] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('#fff');
     const colors = [{
       name: 'red',
       color: '#f00'
@@ -103,20 +95,30 @@ __webpack_require__.r(__webpack_exports__);
       id: "gutenpride-controls"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
       className: "blocks-base-control__label"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Background color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('TEXT', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
       colors: colors,
-      value: color,
-      onChange: color => setColor(color)
-    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorIndicator // Element Tag for Gutenberg standard colour selector
-    //  onChange={ onChangeBGColor } // onChange event callback
-    , {
-      colorValue: color
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      value: colorText,
+      onChange: color => setColorText(color)
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
+      className: "blocks-base-control__label"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('BACKGROUND', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+      colors: colors,
+      value: colorBG,
+      onChange: color => setColorBG(color)
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       ...blockProps,
       tagName: "p",
       onChange: onChangeContent,
-      value: content
-    }));
+      value: content,
+      style: {
+        backgroundColor: colorBG,
+        color: colorText
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Background: ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorIndicator, {
+      colorValue: colorBG
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), "Text : ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorIndicator, {
+      colorValue: colorText
+    })));
   },
   save: props => {
     const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save();

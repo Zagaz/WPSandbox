@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
-import { ColorIndicator, ColorPicker, ColorPalette } from '@wordpress/components';
+import { ColorIndicator, ColorPalette } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 
@@ -44,17 +44,16 @@ registerBlockType('gutenberg-examples/example-03-editable-esnext', {
         const onChangeContent = (newContent) => {
             setAttributes({ content: newContent });
         };
-        const onChangeBGColor = (hexColor) => {
-            setAttributes({ style: { color: { background: hexColor } } });
-        }
-        const [color, setColor] = useState('#f00')
+     
+        const [colorText, setColorText] = useState('#000')
+        const [colorBG, setColorBG] = useState('#fff')
+
         const colors = [
             { name: 'red', color: '#f00' },
             { name: 'white', color: '#fff' },
             { name: 'blue', color: '#00f' },
             { name: 'black', color: '#000' },
             { name: 'green', color: '#0f0' },
-
         ];
 
         return (
@@ -62,32 +61,49 @@ registerBlockType('gutenberg-examples/example-03-editable-esnext', {
                 <InspectorControls
                     key="setting">
                     <div id="gutenpride-controls">
+                        {/* TEXT */}
                         <fieldset>
                             <legend className="blocks-base-control__label">
-                                {__('Background color', 'gutenpride')}
+                                {__('TEXT', 'gutenpride')}
                             </legend>
                             <ColorPalette
                                 colors={colors}
-                                value={color}
-                                onChange={(color) => setColor(color)}
+                                value={colorText}
+                                onChange={(color) => setColorText(color)}
+                            />
+
+                        </fieldset>
+                            {/* BACKGROUND */}
+                        <fieldset>
+                            <legend className="blocks-base-control__label">
+                                {__('BACKGROUND', 'gutenpride')}
+                            </legend>
+                            <ColorPalette
+                                colors={colors}
+                                value={colorBG}
+                                onChange={(color) => setColorBG(color)}
                             />
 
                         </fieldset>
                     </div>
                 </InspectorControls>
-                <ColorIndicator // Element Tag for Gutenberg standard colour selector
-                    //  onChange={ onChangeBGColor } // onChange event callback
-                    colorValue={color}
-
-
-                />
 
                 <RichText
                     {...blockProps}
                     tagName="p"
                     onChange={onChangeContent}
                     value={content}
+                    style={{
+                        backgroundColor: colorBG,
+                        color: colorText
+                    }}
                 />
+                <div>
+                    Background: <ColorIndicator colorValue={colorBG} /><br />
+                    Text : <ColorIndicator colorValue={colorText} />
+
+                </div>
+                    
             </>
         );
     },
