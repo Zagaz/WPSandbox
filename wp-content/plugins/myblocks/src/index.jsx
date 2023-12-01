@@ -5,6 +5,7 @@ import metadata from './block.json';
 
 import './aaa-testing-block';
 import "./zaz-textalignmentoolbar-block";
+import "./zaz-inspectorcontrol-block";
 
 
 

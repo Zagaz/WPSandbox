@@ -10,14 +10,14 @@ import {
 
 registerBlockType( 'zaz-inspectorcontrol/myblocks', {
     apiVersion: 3,
-     title: __( 'ZAZ - Test', 'myblocks' ),
+     title: __( 'ZAZ - Inspector Control', 'myblocks' ),
      icon: 'universal-access-alt',
     attributes: {
         message: {
             type: 'string',
             source: 'text',
             selector: 'div',
-            default: '', // empty default
+            default: '', 
         },
         bg_color: {
                type: 'string', 
