@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/edit.js":
@@ -7,7 +8,6 @@
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -37,22 +37,22 @@ function Edit() {
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
-/* harmony import */ var _zaz_static_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-static-block */ "./src/zaz-static-block/index.jsx");
-/* harmony import */ var _zaz_richtext_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-richtext-block */ "./src/zaz-richtext-block/index.jsx");
-/* harmony import */ var _zaz_textaligntoollbar_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-textaligntoollbar-block */ "./src/zaz-textaligntoollbar-block/index.jsx");
+/* harmony import */ var _zaz_textalignmentoolbar_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-textalignmentoolbar-block */ "./src/zaz-textalignmentoolbar-block/index.jsx");
+/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
 
 
 
 
 
+// import './aaa-testing-block';
 
+// import "./zaz-inspectorcontrol-block";
 
 
 /***/ }),
@@ -63,7 +63,6 @@ __webpack_require__.r(__webpack_exports__);
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ save)
@@ -82,147 +81,32 @@ function save() {
 
 /***/ }),
 
-/***/ "./src/zaz-richtext-block/icon.jsx":
-/*!*****************************************!*\
-  !*** ./src/zaz-richtext-block/icon.jsx ***!
-  \*****************************************/
+/***/ "./src/zaz-colorpallet-block/index.jsx":
+/*!*********************************************!*\
+  !*** ./src/zaz-colorpallet-block/index.jsx ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function Icon() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "56",
-    height: "56",
-    viewBox: "0 0 56 56"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M15.555 53.125h24.89c4.852 0 7.266-2.438 7.266-7.336V10.234c0-4.875-2.414-7.359-7.266-7.359h-24.89c-4.828 0-7.266 2.484-7.266 7.36v35.554c0 4.899 2.438 7.336 7.266 7.336zm.187-3.773c-2.414 0-3.68-1.29-3.68-3.633V10.305c0-2.32 1.266-3.657 3.704-3.657h24.492c2.437 0 3.68 1.313 3.68 3.657v35.414c0 2.343-1.243 3.632-3.657 3.632zm1.664-24.118c.633 0 1.032-.328 1.242-1.125l.82-2.32h4.384l.843 2.32c.211.774.61 1.125 1.219 1.125.82 0 1.266-.445 1.266-1.195 0-.164-.07-.469-.164-.773l-3.446-9.54c-.351-.984-.937-1.453-1.922-1.453-.96 0-1.523.47-1.875 1.454l-3.445 9.539c-.117.28-.164.609-.164.773 0 .75.469 1.195 1.242 1.195zm13.899-8.906h6.89a1.43 1.43 0 001.453-1.453c0-.797-.632-1.43-1.453-1.43h-6.89c-.867 0-1.477.633-1.477 1.43 0 .82.61 1.453 1.477 1.453zm-11.32 3.516l1.593-4.922h.164l1.594 4.922zm11.32 4.664h6.89a1.43 1.43 0 001.453-1.453c0-.797-.632-1.43-1.453-1.43h-6.89c-.867 0-1.477.633-1.477 1.43 0 .82.61 1.453 1.477 1.453zM15.789 43.89h1.664l3.07-3.118c.446-.422.915-.586 1.383-.586.469 0 .985.188 1.43.586l1.922 1.758 4.805-4.265c.539-.47 1.101-.68 1.664-.68.562 0 1.171.187 1.593.68l4.688 5.39h1.64V32.453c0-2.062-1.078-3.117-3.14-3.117H18.953c-1.992 0-3.164 1.055-3.164 3.117zm7.734-5.625c-1.406 0-2.53-1.172-2.53-2.532 0-1.406 1.124-2.578 2.53-2.53 1.383.046 2.532 1.124 2.532 2.53 0 1.36-1.149 2.532-2.532 2.532z"
-  }));
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Icon);
-
-/***/ }),
-
-/***/ "./src/zaz-richtext-block/index.jsx":
-/*!******************************************!*\
-  !*** ./src/zaz-richtext-block/index.jsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _icon_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon.jsx */ "./src/zaz-richtext-block/icon.jsx");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-richtext-block/style.scss");
-
-// make a block with a richtext field
-// // --------------------------------------------------
-const {
-  __
-} = wp.i18n;
-const {
-  registerBlockType
-} = wp.blocks;
-const {
-  RichText
-} = wp.blockEditor;
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 
 
-// end replace
 
-registerBlockType('myblocks/richtext', {
-  title: __('ZAZ - RichText', 'myblocks'),
-  icon: _icon_jsx__WEBPACK_IMPORTED_MODULE_1__["default"],
-  category: 'common',
-  attributes: {
-    content: {
-      type: 'array',
-      source: 'children',
-      selector: 'p'
-    }
-  },
-  edit: props => {
-    const {
-      attributes: {
-        content
-      },
-      setAttributes,
-      className
-    } = props;
-    const onChangeContent = newContent => {
-      setAttributes({
-        content: newContent
-      });
-    };
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: className
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "     Backend: ", __('RichText', 'myblocks'), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
-      tagName: "p",
-      className: className,
-      onChange: onChangeContent,
-      placeholder: __('Add your custom text', 'myblock'),
-      value: content
-    }));
-  },
-  save: props => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "     Frontend: ", __('RichText', 'myblocks'), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
-      tagName: "p",
-      value: props.attributes.content
-    }));
-  }
-});
-// // --------------------------------------------------
-//
-//
 
-/***/ }),
 
-/***/ "./src/zaz-static-block/index.jsx":
-/*!****************************************!*\
-  !*** ./src/zaz-static-block/index.jsx ***!
-  \****************************************/
-/***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/andre/dev/WPSandbox/wp-content/plugins/myblocks/src/zaz-static-block/index.jsx: Unexpected token (1:1)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m'./style.scss'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mIcon\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'./icon'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n    at constructor (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:356:19)\n    at JSXParserMixin.raise (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:3223:19)\n    at JSXParserMixin.unexpected (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:3253:16)\n    at JSXParserMixin.jsxParseIdentifier (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6725:12)\n    at JSXParserMixin.jsxParseNamespacedName (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6732:23)\n    at JSXParserMixin.jsxParseElementName (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6741:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6821:22)\n    at JSXParserMixin.jsxParseElementAt (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6846:33)\n    at JSXParserMixin.jsxParseElement (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6915:17)\n    at JSXParserMixin.parseExprAtom (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:6927:19)\n    at JSXParserMixin.parseExprSubscripts (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10857:23)\n    at JSXParserMixin.parseUpdate (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10840:21)\n    at JSXParserMixin.parseMaybeUnary (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10816:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10654:61)\n    at JSXParserMixin.parseExprOps (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10659:23)\n    at JSXParserMixin.parseMaybeConditional (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10636:23)\n    at JSXParserMixin.parseMaybeAssign (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10597:21)\n    at JSXParserMixin.parseExpressionBase (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10551:23)\n    at /home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10547:39\n    at JSXParserMixin.allowInAnd (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12279:16)\n    at JSXParserMixin.parseExpression (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:10547:17)\n    at JSXParserMixin.parseStatementContent (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12737:23)\n    at JSXParserMixin.parseStatementLike (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12588:17)\n    at JSXParserMixin.parseModuleItem (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12565:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:13189:36)\n    at JSXParserMixin.parseBlockBody (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:13182:10)\n    at JSXParserMixin.parseProgram (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12464:10)\n    at JSXParserMixin.parseTopLevel (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:12454:25)\n    at JSXParserMixin.parse (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:14376:10)\n    at parse (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/parser/lib/index.js:14417:38)\n    at parser (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/@babel/core/lib/transform.js:22:33)\n    at transform.next (<anonymous>)\n    at step (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/gensync/index.js:261:32)\n    at /home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/home/andre/dev/WPSandbox/wp-content/plugins/myblocks/node_modules/gensync/index.js:223:11)");
 
-/***/ }),
-
-/***/ "./src/zaz-textaligntoollbar-block/index.jsx":
-/*!***************************************************!*\
-  !*** ./src/zaz-textaligntoollbar-block/index.jsx ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-textaligntoollbar-block/style.scss");
-
-const {
-  __
-} = wp.i18n;
-const {
-  registerBlockType
-} = wp.blocks;
-const {
-  RichText,
-  AlignmentToolbar,
-  BlockControls
-} = wp.blockEditor;
-
-registerBlockType('myblocks/textaligntoollbar', {
-  title: __('ZAZ - Text Align Toolbar', 'myblocks'),
-  icon: 'editor-alignleft',
+// Register the block
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('zaz-colorpallet-block/myblock', {
+  title: 'ZAZ - Color Pallet Block',
+  icon: 'art',
   category: 'common',
   attributes: {
     content: {
@@ -230,20 +114,145 @@ registerBlockType('myblocks/textaligntoollbar', {
       source: 'children',
       selector: 'p'
     },
+    backgroundColor: {
+      type: 'string',
+      default: '#ffffff' // default background color
+    },
+
+    textColor: {
+      type: 'string',
+      default: '#000000' // default text color
+    }
+  },
+
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
+    const {
+      content,
+      backgroundColor,
+      textColor
+    } = attributes;
+    const colors = [{
+      name: 'red',
+      color: '#f00'
+    }, {
+      name: 'white',
+      color: '#fff'
+    }, {
+      name: 'blue',
+      color: '#00f'
+    }, {
+      name: 'green',
+      color: '#0f0'
+    }];
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        backgroundColor,
+        color: textColor,
+        padding: '20px'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      title: "Color Settings"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+      colors: colors,
+      value: backgroundColor,
+      onChange: color => setAttributes({
+        backgroundColor: color
+      })
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+      colors: colors,
+      value: textColor,
+      onChange: color => setAttributes({
+        textColor: color
+      })
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      tagName: "p",
+      value: content,
+      onChange: newContent => setAttributes({
+        content: newContent
+      })
+    }));
+  },
+  save: ({
+    attributes
+  }) => {
+    const {
+      content,
+      backgroundColor,
+      textColor
+    } = attributes;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        backgroundColor,
+        textColor,
+        padding: '20px'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      tagName: "p",
+      value: content
+    }));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/zaz-textalignmentoolbar-block/index.jsx":
+/*!*****************************************************!*\
+  !*** ./src/zaz-textalignmentoolbar-block/index.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-textalignmentoolbar-block/style.scss");
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('myblocks/zaz-textalignmentoolbar-block', {
+  apiVersion: 3,
+  title: 'ZAZ - Richtext alignment',
+  icon: 'universal-access-alt',
+  category: 'design',
+  attributes: {
+    content: {
+      type: 'string',
+      source: 'html',
+      selector: 'p'
+    },
+    title: {
+      type: 'string',
+      source: 'html',
+      selector: 'h1',
+      className: 'title',
+      default: ''
+    },
     alignment: {
       type: 'string',
       default: 'none'
     }
   },
-  edit: props => {
-    const {
-      attributes: {
-        content,
-        alignment
-      },
-      setAttributes,
-      className
-    } = props;
+  example: {
+    attributes: {
+      title: 'Title',
+      content: 'Hello World',
+      alignment: 'right'
+    }
+  },
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
     const onChangeContent = newContent => {
       setAttributes({
         content: newContent
@@ -254,38 +263,53 @@ registerBlockType('myblocks/textaligntoollbar', {
         alignment: newAlignment === undefined ? 'none' : newAlignment
       });
     };
+    const onChageTitle = newTitle => {
+      setAttributes({
+        title: newTitle
+      });
+    };
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: className
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "     Backend: ", __('Text Align Toolbar', 'myblocks'), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(AlignmentToolbar, {
-      value: alignment,
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
+      value: attributes.alignment,
       onChange: onChangeAlignment
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
-      tagName: "p",
-      className: className,
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+      label: "Title",
+      value: attributes.title,
+      onChange: onChageTitle,
+      className: "title"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      className: 'rich-text-custom-style',
       style: {
-        textAlign: alignment
+        textAlign: attributes.alignment
       },
+      tagName: "p",
       onChange: onChangeContent,
-      placeholder: __('Add your custom text', 'myblock'),
-      value: content
+      value: attributes.content,
+      placeholder: 'Add your custom text here'
     }));
   },
   save: props => {
-    const {
-      attributes: {
-        content,
-        alignment
-      },
-      className
-    } = props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Frontend: ", __('Text Align Toolbar', 'myblocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+    const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save();
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...blockProps
+    }, props.attributes.title ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      className: `gutenberg-examples-align-${props.attributes.alignment}`,
+      tagName: "h1",
+      value: props.attributes.title
+    }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      className: `gutenberg-examples-align-${props.attributes.alignment}`,
+      tagName: "h1",
+      value: "Title",
+      "wp-block-myblocks-zaz-textalignmentoolbar-block": true
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      className: `gutenberg-examples-align-${props.attributes.alignment} title`,
       tagName: "p",
-      className: className,
-      value: content,
+      value: props.attributes.content,
       style: {
-        textAlign: alignment
+        textAlign: props.attributes.alignment
       }
-    })));
+    }));
   }
 });
 
@@ -297,33 +321,18 @@ registerBlockType('myblocks/textaligntoollbar', {
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
 /***/ }),
 
-/***/ "./src/zaz-richtext-block/style.scss":
-/*!*******************************************!*\
-  !*** ./src/zaz-richtext-block/style.scss ***!
-  \*******************************************/
+/***/ "./src/zaz-textalignmentoolbar-block/style.scss":
+/*!******************************************************!*\
+  !*** ./src/zaz-textalignmentoolbar-block/style.scss ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/zaz-textaligntoollbar-block/style.scss":
-/*!****************************************************!*\
-  !*** ./src/zaz-textaligntoollbar-block/style.scss ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -336,7 +345,6 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["React"];
 
 /***/ }),
@@ -347,7 +355,6 @@ module.exports = window["React"];
   \*************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -358,8 +365,17 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 
@@ -369,7 +385,6 @@ module.exports = window["wp"]["blocks"];
   \******************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["i18n"];
 
 /***/ }),
@@ -380,7 +395,6 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/myblocks","version":"0.1.0","title":"Myblocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"myblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })

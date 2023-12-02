@@ -1,0 +1,17 @@
+.wp-block-myblocks-zaz-textalignmentoolbar-block{
+     background-color: ivory;
+     padding: 20px;
+     border: 1px solid lightseagreen;
+     border-radius: 5px;
+     .rich-text-custom-style{
+          white-space: pre-wrap;
+          min-width: 1px;
+          background-color: white;
+          border-bottom: 1px solid deepskyblue;
+          padding: 10px;
+     }
+     .title{
+          text-transform: uppercase;
+
+     }
+}

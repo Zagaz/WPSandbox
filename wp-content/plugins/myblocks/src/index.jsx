@@ -3,10 +3,12 @@ import Edit from './edit';
 import save from './save';
 import metadata from './block.json'; 
 
-import "./zaz-static-block";
+// import './aaa-testing-block';
+import "./zaz-textalignmentoolbar-block";
+// import "./zaz-inspectorcontrol-block";
+import "./zaz-colorpallet-block";
 
-import "./zaz-richtext-block";
-import "./zaz-textaligntoollbar-block";
+
 
 
 
