@@ -5,7 +5,7 @@ import './style.scss';
 
 // Register the block
 registerBlockType('zaz-inputs/myblock', {
-    title: 'ZZZ - Inputs',
+    title: 'ZAZ - Inputs',
     icon: Icon,
     category: 'common',
     attributes: {

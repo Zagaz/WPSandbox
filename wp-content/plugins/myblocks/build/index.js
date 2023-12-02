@@ -44,7 +44,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
 /* harmony import */ var _zaz_textalignmentoolbar_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-textalignmentoolbar-block */ "./src/zaz-textalignmentoolbar-block/index.jsx");
-/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
+/* harmony import */ var _zaz_inspectorcontrol_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-inspectorcontrol-block */ "./src/zaz-inspectorcontrol-block/index.jsx");
+/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
+/* harmony import */ var _zaz_inputs_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./zaz-inputs-block */ "./src/zaz-inputs-block/index.jsx");
 
 
 
@@ -52,7 +54,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // import './aaa-testing-block';
 
-// import "./zaz-inspectorcontrol-block";
+
+
 
 
 /***/ }),
@@ -198,6 +201,250 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/zaz-inputs-block/icon.jsx":
+/*!***************************************!*\
+  !*** ./src/zaz-inputs-block/icon.jsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Icon() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "682.667",
+    height: "682.667",
+    version: "1",
+    viewBox: "0 0 512 512"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M2634 5098c-44-21-335-418-485-663-625-1020-1007-2419-1134-4145-19-260-19-247 9-265 42-28 69-11 148 93 523 690 993 1195 1433 1539 224 175 505 343 574 343 48 0 94-49 238-257 233-336 457-692 723-1152 135-233 138-236 172-239 48-4 70 18 63 66-3 20-14 127-25 237-90 882-255 1642-512 2350-265 732-596 1354-1042 1957-101 136-122 154-162 136zm112-1304c46-394 86-720 90-723 3-3 114-31 247-62l242-56-220-73c-121-40-224-76-228-80s4-76 18-160 24-157 23-161c-2-5-64 56-138 136-73 80-137 145-141 145-3 0-59-70-124-155s-119-154-121-152c-2 1 5 79 15 172 14 122 16 172 8 177-6 4-99 37-207 74-107 37-198 70-202 73-5 4 94 31 220 60 125 30 230 57 233 60 4 3 49 331 100 728 52 397 95 720 97 718s42-327 88-721z",
+    transform: "matrix(.1 0 0 -.1 0 512)"
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Icon);
+
+/***/ }),
+
+/***/ "./src/zaz-inputs-block/index.jsx":
+/*!****************************************!*\
+  !*** ./src/zaz-inputs-block/index.jsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icon */ "./src/zaz-inputs-block/icon.jsx");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.scss */ "./src/zaz-inputs-block/style.scss");
+
+
+
+
+
+
+// Register the block
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('zaz-inputs/myblock', {
+  title: 'ZAZ - Inputs',
+  icon: _icon__WEBPACK_IMPORTED_MODULE_3__["default"],
+  category: 'common',
+  attributes: {
+    name: {
+      type: 'string',
+      default: ""
+    },
+    ship: {
+      type: 'string',
+      default: ""
+    },
+    test: {
+      type: 'boolean',
+      default: false
+    }
+  },
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
+    function onChangeName(event) {
+      setAttributes({
+        name: event.target.value
+      });
+    }
+    function onChangeShip(event) {
+      setAttributes({
+        ship: event.target.value
+      });
+    }
+    function onChangeCheckBox(event) {
+      setAttributes({
+        test: event.target.checked
+      });
+    }
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Some inputs"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      htmlFor: "name"
+    }, "Name: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "text",
+      value: attributes.name,
+      id: "name",
+      onChange: onChangeName
+    }), !attributes.name && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
+      id: "sname"
+    }, " Can't be empty "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      htmlFor: "ship"
+    }, "Ship: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("select", {
+      name: "ship",
+      id: "ship",
+      value: attributes.ship,
+      onChange: onChangeShip
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: "",
+      placeholder: "Choose a ship"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: "Enteprise"
+    }, " USS Enterprise "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: "Enterprise-D"
+    }, " USS Enterprise-D "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: "Enterprise-E"
+    }, " USS Enterprise-E "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: "Deepspace 9"
+    }, " Deepsape 9 "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: "Voyager"
+    }, " USS Voyager ")), !attributes.ship && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
+      id: "sship"
+    }, " Must choose one "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      htmlFor: "checkbox"
+    }, " Engage! "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "checkbox",
+      name: "checkbox",
+      id: "checkbox",
+      value: attributes.name,
+      onChange: onChangeCheckBox
+    }), !attributes.test && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
+      id: "scheckbox"
+    }, " Must be checked to show on frontend "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), attributes.name && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Name: ", attributes.name), attributes.ship && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Ship: ", attributes.ship), attributes.test && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Checkbox: Make it so!")));
+  },
+  save: ({
+    attributes
+  }) => {
+    const {
+      name,
+      ship,
+      test
+    } = attributes;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Inputs block")), name && ship && test && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, " ", name, " is the captain of ship ", ship, ". "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/zaz-inspectorcontrol-block/index.jsx":
+/*!**************************************************!*\
+  !*** ./src/zaz-inspectorcontrol-block/index.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('zaz-inspectorcontrol/myblocks', {
+  apiVersion: 3,
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('ZAZ - Inspector Control', 'myblocks'),
+  icon: 'universal-access-alt',
+  attributes: {
+    message: {
+      type: 'string',
+      source: 'text',
+      selector: 'div',
+      default: ''
+    },
+    bg_color: {
+      type: 'string',
+      default: '#000000'
+    },
+    text_color: {
+      type: 'string',
+      default: '#ffffff'
+    }
+  },
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
+    const onChangeBGColor = hexColor => {
+      setAttributes({
+        bg_color: hexColor
+      });
+    };
+    const onChangeTextColor = hexColor => {
+      setAttributes({
+        text_color: hexColor
+      });
+    };
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)()
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, {
+      key: "setting"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      id: "gutenpride-controls"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
+      className: "blocks-base-control__label"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Background color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.ColorPalette // Element Tag for Gutenberg standard colour selector
+    , {
+      onChange: onChangeBGColor // onChange event callback
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
+      className: "blocks-base-control__label"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.ColorPalette // Element Tag for Gutenberg standard colour selector
+    , {
+      onChange: onChangeTextColor // onChange event callback
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+      value: attributes.message,
+      onChange: val => setAttributes({
+        message: val
+      }),
+      style: {
+        backgroundColor: attributes.bg_color,
+        color: attributes.text_color
+      }
+    }));
+  },
+  save: ({
+    attributes
+  }) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps.save(),
+      style: {
+        backgroundColor: attributes.bg_color,
+        color: attributes.text_color
+      }
+    }, attributes.message);
+  }
+});
+
+/***/ }),
+
 /***/ "./src/zaz-textalignmentoolbar-block/index.jsx":
 /*!*****************************************************!*\
   !*** ./src/zaz-textalignmentoolbar-block/index.jsx ***!
@@ -319,6 +566,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************!*\
   !*** ./src/editor.scss ***!
   \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/zaz-inputs-block/style.scss":
+/*!*****************************************!*\
+  !*** ./src/zaz-inputs-block/style.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

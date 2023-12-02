@@ -17,5 +17,25 @@
 .wp-block-myblocks-zaz-textalignmentoolbar-block .title {
   text-transform: uppercase;
 }
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/zaz-inputs-block/style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-myblocks-aaa-testing-block {
+  background-color: ivory;
+  padding: 20px;
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
+}
+.wp-block-myblocks-aaa-testing-block .rich-text-custom-style {
+  white-space: pre-wrap;
+  min-width: 1px;
+  background-color: white;
+  border-bottom: 1px solid deepskyblue;
+  padding: 10px;
+}
+
+small {
+  color: rgb(157, 51, 51);
+}
 
 /*# sourceMappingURL=style-index.css.map*/
