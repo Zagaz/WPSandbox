@@ -2,6 +2,49 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/aaa-testing-block/index.jsx":
+/*!*****************************************!*\
+  !*** ./src/aaa-testing-block/index.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+
+
+// Register the block
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('zaz-colorpallet-block/myblock', {
+  title: 'AAA',
+  icon: 'art',
+  category: 'common',
+  attributes: {},
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+  },
+  save: ({
+    attributes
+  }) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+  }
+});
+
+/***/ }),
+
 /***/ "./src/edit.js":
 /*!*********************!*\
   !*** ./src/edit.js ***!
@@ -43,16 +86,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
-/* harmony import */ var _zaz_textalignmentoolbar_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-textalignmentoolbar-block */ "./src/zaz-textalignmentoolbar-block/index.jsx");
-/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
+/* harmony import */ var _aaa_testing_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./aaa-testing-block */ "./src/aaa-testing-block/index.jsx");
+/* harmony import */ var _zaz_textalignmentoolbar_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-textalignmentoolbar-block */ "./src/zaz-textalignmentoolbar-block/index.jsx");
+/* harmony import */ var _zaz_inspectorcontrol_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-inspectorcontrol-block */ "./src/zaz-inspectorcontrol-block/index.jsx");
+/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './zaz-inputs-block'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
 
 
-// import './aaa-testing-block';
 
-// import "./zaz-inspectorcontrol-block";
+
+
 
 
 /***/ }),
@@ -193,6 +239,104 @@ __webpack_require__.r(__webpack_exports__);
       tagName: "p",
       value: content
     }));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/zaz-inspectorcontrol-block/index.jsx":
+/*!**************************************************!*\
+  !*** ./src/zaz-inspectorcontrol-block/index.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('zaz-inspectorcontrol/myblocks', {
+  apiVersion: 3,
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('ZAZ - Inspector Control', 'myblocks'),
+  icon: 'universal-access-alt',
+  attributes: {
+    message: {
+      type: 'string',
+      source: 'text',
+      selector: 'div',
+      default: ''
+    },
+    bg_color: {
+      type: 'string',
+      default: '#000000'
+    },
+    text_color: {
+      type: 'string',
+      default: '#ffffff'
+    }
+  },
+  edit: ({
+    attributes,
+    setAttributes
+  }) => {
+    const onChangeBGColor = hexColor => {
+      setAttributes({
+        bg_color: hexColor
+      });
+    };
+    const onChangeTextColor = hexColor => {
+      setAttributes({
+        text_color: hexColor
+      });
+    };
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)()
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, {
+      key: "setting"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      id: "gutenpride-controls"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
+      className: "blocks-base-control__label"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Background color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.ColorPalette // Element Tag for Gutenberg standard colour selector
+    , {
+      onChange: onChangeBGColor // onChange event callback
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
+      className: "blocks-base-control__label"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text color', 'gutenpride')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.ColorPalette // Element Tag for Gutenberg standard colour selector
+    , {
+      onChange: onChangeTextColor // onChange event callback
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+      value: attributes.message,
+      onChange: val => setAttributes({
+        message: val
+      }),
+      style: {
+        backgroundColor: attributes.bg_color,
+        color: attributes.text_color
+      }
+    }));
+  },
+  save: ({
+    attributes
+  }) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps.save(),
+      style: {
+        backgroundColor: attributes.bg_color,
+        color: attributes.text_color
+      }
+    }, attributes.message);
   }
 });
 
