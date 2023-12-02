@@ -7,7 +7,7 @@ import { ColorPalette } from '@wordpress/components';
 
 // Register the block
 registerBlockType('zaz-colorpallet-block/myblock', {
-    title: 'Custom Block',
+    title: 'ZAZ - Color Pallet Block',
     icon: 'art',
     category: 'common',
     attributes: {
@@ -28,7 +28,7 @@ registerBlockType('zaz-colorpallet-block/myblock', {
 
     edit: ({ attributes, setAttributes }) => {
         const { content, backgroundColor, textColor } = attributes;
-
+        
         const colors = [
             { name: 'red', color: '#f00' },
             { name: 'white', color: '#fff' },
@@ -46,15 +46,15 @@ registerBlockType('zaz-colorpallet-block/myblock', {
             >
                 <InspectorControls>
                     <PanelBody title="Color Settings">
-                        <ColorPalette
-                            colors={colors}
-                            value={backgroundColor}
-                            onChange={(color) => setAttributes({ backgroundColor: color })}
+                      <ColorPalette
+                        colors={ colors }
+                        value={ backgroundColor }
+                        onChange={ ( color ) => setAttributes( { backgroundColor: color } ) }
                         />
                         <ColorPalette
-                            colors={colors}
-                            value={textColor}
-                            onChange={(color) => setAttributes({ textColor: color })}
+                        colors={ colors }
+                        value={ textColor }
+                        onChange={ ( color ) => setAttributes( { textColor: color } ) }
                         />
 
                     </PanelBody>
@@ -75,7 +75,7 @@ registerBlockType('zaz-colorpallet-block/myblock', {
             <div
                 style={{
                     backgroundColor,
-                    textColor,
+                   textColor,
                     padding: '20px',
                 }}
             >
