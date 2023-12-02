@@ -2,6 +2,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/aaa-testing-block/index.jsx":
+/*!*****************************************!*\
+  !*** ./src/aaa-testing-block/index.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('gutenberg-examples/example-dynamic', {
+  apiVersion: 3,
+  title: 'aaa Example: last post',
+  icon: 'megaphone',
+  category: 'widgets',
+  edit: function (props) {
+    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)();
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...blockProps
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default()), {
+      block: "gutenberg-examples/example-dynamic",
+      attributes: props.attributes
+    }));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/edit.js":
 /*!*********************!*\
   !*** ./src/edit.js ***!
@@ -43,16 +80,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
-/* harmony import */ var _zaz_textalignmentoolbar_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zaz-textalignmentoolbar-block */ "./src/zaz-textalignmentoolbar-block/index.jsx");
-/* harmony import */ var _zaz_inspectorcontrol_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-inspectorcontrol-block */ "./src/zaz-inspectorcontrol-block/index.jsx");
-/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
-/* harmony import */ var _zaz_inputs_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./zaz-inputs-block */ "./src/zaz-inputs-block/index.jsx");
+/* harmony import */ var _aaa_testing_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./aaa-testing-block */ "./src/aaa-testing-block/index.jsx");
+/* harmony import */ var _zaz_textalignmentoolbar_block__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./zaz-textalignmentoolbar-block */ "./src/zaz-textalignmentoolbar-block/index.jsx");
+/* harmony import */ var _zaz_inspectorcontrol_block__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./zaz-inspectorcontrol-block */ "./src/zaz-inspectorcontrol-block/index.jsx");
+/* harmony import */ var _zaz_colorpallet_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./zaz-colorpallet-block */ "./src/zaz-colorpallet-block/index.jsx");
+/* harmony import */ var _zaz_inputs_block__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./zaz-inputs-block */ "./src/zaz-inputs-block/index.jsx");
 
 
 
 
 
-// import './aaa-testing-block';
 
 
 
@@ -215,6 +252,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+// Star Trek Insignia
 function Icon() {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     xmlns: "http://www.w3.org/2000/svg",
@@ -645,6 +683,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/server-side-render":
+/*!******************************************!*\
+  !*** external ["wp","serverSideRender"] ***!
+  \******************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["serverSideRender"];
 
 /***/ }),
 
