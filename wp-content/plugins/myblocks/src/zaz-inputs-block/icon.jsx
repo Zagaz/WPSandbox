@@ -1,5 +1,5 @@
 import React from "react";
-
+// Star Trek Insignia
 function Icon() {
   return (
     <svg
