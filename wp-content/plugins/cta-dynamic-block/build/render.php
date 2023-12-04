@@ -4,5 +4,5 @@
  */
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Mydynamicblocks – hello from a dynamic block!', 'mydynamicblocks' ); ?>
+	<?php esc_html_e( 'Cta Dynamic Block – hello from a dynamic block!', 'cta-dynamic-block' ); ?>
 </p>

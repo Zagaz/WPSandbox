@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Mydynamicblocks
+ * Plugin Name:       Cta Dynamic Block
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
@@ -8,7 +8,7 @@
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       mydynamicblocks
+ * Text Domain:       cta-dynamic-block
  *
  * @package           create-block
  */
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function mydynamicblocks_mydynamicblocks_block_init() {
+function cta_dynamic_block_cta_dynamic_block_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'mydynamicblocks_mydynamicblocks_block_init' );
+add_action( 'init', 'cta_dynamic_block_cta_dynamic_block_block_init' );

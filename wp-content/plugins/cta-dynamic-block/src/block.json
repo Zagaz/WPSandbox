@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/mydynamicblocks",
+	"name": "create-block/cta-dynamic-block",
 	"version": "0.1.0",
-	"title": "Mydynamicblocks",
+	"title": "Cta Dynamic Block",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
@@ -11,7 +11,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "mydynamicblocks",
+	"textdomain": "cta-dynamic-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
