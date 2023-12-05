@@ -6,6 +6,12 @@
   "title": "ZAGAZ Text Box",
   "category": "text",
   "description": "Example block scaffolded with Create Block tool.",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Hello World"
+    }
+  },
   "example": {},
   "supports": {
     "html": false
