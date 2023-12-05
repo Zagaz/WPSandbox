@@ -9,7 +9,8 @@
   "attributes": {
     "text": {
       "type": "string",
-      "default": "Hello World"
+      "source": "html",
+      "selector": "h4"
     }
   },
   "example": {},
