@@ -7,7 +7,10 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-text-box-blocks-course {
-  border: 1px dotted #f00;
+  padding: 1em;
+  color: #000000;
+  background-color: #ffffff;
+  border-left: 3px solid rgb(59, 45, 189);
 }
 
 /*# sourceMappingURL=index.css.map*/
