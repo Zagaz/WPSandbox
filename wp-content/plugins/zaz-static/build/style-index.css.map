@@ -1,1 +1,0 @@
-{"version":3,"file":"./style-index.css","mappings":";;;AAAA;EACC;EACA;EACA;EACA;AACD,C","sources":["webpack://zaz-static/./src/style.scss"],"sourcesContent":[".wp-block-first-block-zaz-static {\n\tbackground-color: #8eb9c5;\n\tcolor: #06021c;\n\tborder-left : 5px solid #473997;\n\tpadding: 10px;\n\n}\n"],"names":[],"sourceRoot":""}
