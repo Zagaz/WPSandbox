@@ -15,6 +15,9 @@
     "alignment": {
       "type": "string",
       "default": "left"
+    },
+    "backgroundColor": {
+      "type": "string"
     }
   },
   "supports": {
