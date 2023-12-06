@@ -1,0 +1,1 @@
+{"version":3,"file":"view.js","mappings":";;;;;AAAAA,OAAO,CAACC,GAAG,CAAE,iDAAkD,CAAC,C","sources":["webpack://dynamic-block/./src/view.js"],"sourcesContent":["console.log( 'Hello World! (from dynamic-dynamic-block block)' );\n\n"],"names":["console","log"],"sourceRoot":""}

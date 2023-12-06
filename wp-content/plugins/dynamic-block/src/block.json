@@ -3,10 +3,15 @@
 	"apiVersion": 3,
 	"name": "dynamic/dynamic-block",
 	"version": "0.1.0",
-	"title": "ZAGAZ Dynamic",
+	"title": "ZAGAZ Latest Posts",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "admin-post",
 	"description": "Example block scaffolded with Create Block tool.",
+	"keywords": [
+		"zagaz",
+		"latest",
+		"posts"
+	],
 	"example": {},
 	"supports": {
 		"html": false
