@@ -17,7 +17,12 @@
       "default": "left"
     },
     "backgroundColor": {
-      "type": "string"
+      "type": "string",
+      "default": "white"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "black"
     }
   },
   "supports": {

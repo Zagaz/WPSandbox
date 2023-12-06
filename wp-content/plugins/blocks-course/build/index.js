@@ -32,7 +32,9 @@ function Edit({
 }) {
   const {
     text,
-    alignment
+    alignment,
+    backgroundColor,
+    textColor
   } = attributes;
   const onChangeAlignment = newAlignment => {
     setAttributes({
@@ -44,27 +46,30 @@ function Edit({
       text: newText
     });
   };
+  const onChangeBackgroundColor = newColor => {
+    setAttributes({
+      backgroundColor: newColor
+    });
+  };
+  const onChangeTextColor = newColor => {
+    setAttributes({
+      textColor: newColor
+    });
+  };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'text-box'),
     icon: "admin-appearance",
     initialOpen: true
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-    label: "Input Label",
-    value: text,
-    onChange: onChangeText,
-    help: "help text"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
-    label: "Text Area Label",
-    value: text,
-    onChange: onChangeText,
-    help: "help text"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-    label: "Toggle Label",
-    checked: true,
-    onChange: v => console.log(v)
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.AnglePickerControl, null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
-    color: 'F03',
-    onChangeComplete: v => console.log(v)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    colors: [{
+      name: 'red',
+      color: '#F00'
+    }, {
+      name: 'black',
+      color: '#000'
+    }],
+    onChange: onChangeBackgroundColor,
+    value: backgroundColor
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
     colors: [{
       name: 'red',
@@ -73,13 +78,18 @@ function Edit({
       name: 'black',
       color: '#000'
     }],
-    onChange: v => console.log(v)
+    onChange: onChangeTextColor,
+    value: textColor
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
     value: alignment,
     onChange: onChangeAlignment
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: `text-box-align-${alignment}`
+      className: `text-box-align-${alignment}`,
+      style: {
+        backgroundColor,
+        color: textColor
+      }
     }),
     onChange: onChangeText,
     value: text,
@@ -88,6 +98,32 @@ function Edit({
     allowedFormats: []
   }));
 }
+
+/*
+	<TextControl
+						label="Input Label"
+						value={ text }
+						onChange={ onChangeText }
+						help="help text"
+					/>
+					<TextareaControl
+						label="Text Area Label"
+						value={ text }
+						onChange={ onChangeText }
+						help="help text"
+					/>
+					<ToggleControl
+						label="Toggle Label"
+						checked={ true }
+						onChange={ ( v ) => console.log( v ) }
+					/>
+					<AnglePickerControl />
+					<ColorPicker
+						color={ 'F03' }
+						onChangeComplete={ ( v ) => console.log( v ) }
+					/>
+				
+*/
 
 /***/ }),
 
@@ -141,13 +177,23 @@ function save({
   attributes
 }) {
   const {
-    text
+    text,
+    alignment,
+    backgroundColor,
+    textColor
   } = attributes;
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
-    tagName: "h4",
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+      className: 'wp-block-cgb-text-box',
+      style: {
+        textAlign: alignment,
+        backgroundColor,
+        color: textColor
+      }
+    }),
+    tagName: "p",
     value: text
-  });
+  }));
 }
 
 /***/ }),
@@ -232,7 +278,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://developer.wordpress.org/block-editor/packages/packages-blocks/src/api/version/3.0.0/schema.json","apiVersion":3,"name":"text-box/blocks-course","version":"0.1.0","title":"ZAGAZ Text Box","category":"text","description":"Example block scaffolded with Create Block tool.","attributes":{"text":{"type":"string","source":"html","selector":"h4"},"alignment":{"type":"string","default":"left"}},"supports":{"html":false},"textdomain":"blocks-course","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://developer.wordpress.org/block-editor/packages/packages-blocks/src/api/version/3.0.0/schema.json","apiVersion":3,"name":"text-box/blocks-course","version":"0.1.0","title":"ZAGAZ Text Box","category":"text","description":"Example block scaffolded with Create Block tool.","attributes":{"text":{"type":"string","source":"html","selector":"h4"},"alignment":{"type":"string","default":"left"},"backgroundColor":{"type":"string","default":"white"},"textColor":{"type":"string","default":"black"}},"supports":{"html":false},"textdomain":"blocks-course","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
