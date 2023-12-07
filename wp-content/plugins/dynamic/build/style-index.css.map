@@ -1,1 +1,0 @@
-{"version":3,"file":"./style-index.css","mappings":";;;AAEA;EACC;EACA;EACA;AADD,C","sources":["webpack://dynamic/./src/style.scss"],"sourcesContent":["\n\n.wp-block-latest-posts-dynamic {\n\tbackground-color: #21759b;\n\tcolor: #fff;\n\tpadding: 2px;\n}\n"],"names":[],"sourceRoot":""}
