@@ -1,1 +1,0 @@
-{"version":3,"file":"index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://dynamic-block/./src/editor.scss"],"sourcesContent":[".wp-block-dynamic-dynamic-block {\n\tborder-left: 3px solid rgb(35, 35, 155)\n}\n"],"names":[],"sourceRoot":""}

@@ -4,8 +4,8 @@ import './editor.scss';
 
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'ZAGAZ Dynamic – hello from the editor!', 'dynamic-block' ) }
+		<p {...useBlockProps()}>
+			{__('Boilerplate – hello from the editor!', 'boilerplate')}
 		</p>
 	);
 }
