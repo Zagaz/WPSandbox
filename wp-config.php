@@ -14,14 +14,14 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 /** Authentication Unique Keys and Salts. */
-define( 'AUTH_KEY', 'fuspHINfOhONaotOaMHwbgthzTWEQPnvpGHIhEDWoSujOzAXsyfKfbEyakgeoLWW' );
-define( 'SECURE_AUTH_KEY', 'ZuxhjhXTxxkpvQhhFeOVxIikpLxQIGQbSdRnFPPBDQkHqZqgBShjfAiaxnQhqzxK' );
-define( 'LOGGED_IN_KEY', 'PxLbukPzoZATawiAzjcDFEfYxJJIVHOGHBFYRLoUzBuDQFDjMPEUPQOBLliSnqMr' );
-define( 'NONCE_KEY', 'TPjKDETvOaSuUxuNttvIruhaJRcLsIkTTnqWfQKzWlnweXdQloJlfCVSOqooWJGh' );
-define( 'AUTH_SALT', 'OvFBExmprspmhPeZXdWTpFVJBBgYQQcBDbTuKZfQkIZgxNQSxBZAtziVfWRVqIJS' );
-define( 'SECURE_AUTH_SALT', 'GxwPkNhsxKXnoECFjqyRSnCvGfSSXHosAFPaxfcYpNUyAGcPmdHKIuHgOJyzcxgP' );
-define( 'LOGGED_IN_SALT', 'jMMiJWCKASqogQgGJHMXpbQnaSXyMfZXdfdiKOjrHgKZJnRBwRjpTHKJoajbaIjb' );
-define( 'NONCE_SALT', 'LYlElEHFdyaQYoQSHILsjwZjYkNBnqHnDBBFtcPKPqHDCUMZOcsmpcrIKIGyJMMc' );
+define( 'AUTH_KEY', 'IDLeAsrMmiSaPrplvHiwZoFuFTaWDrlIsDqPnPbqjXDjXBJulqKVwbfJUkDcWKJa' );
+define( 'SECURE_AUTH_KEY', 'NDGiTPXJpuAeRLFmdcAZqFSOWdmeTfhHqXMbMCGdgOlmQfbihxoaIvPPehWeJnSL' );
+define( 'LOGGED_IN_KEY', 'SWtVFyXjFkafiuquCvSZZMzUeBWEPXYKhdQPjcvkfoQEOdvgCxAWqBIruHkXxsys' );
+define( 'NONCE_KEY', 'ybDhYwbcnZYoPKzkkwjakKVauHkYvxtkyZdAvHYLKUayTkvsqydndOaYcHMzhZik' );
+define( 'AUTH_SALT', 'lulVYbbhafNjvdTRaUHggHAxOZNFaXpfcnYtMuHdRykssFmTwkcxsOJwzbrrTsIa' );
+define( 'SECURE_AUTH_SALT', 'uWakMHPwLGunThxRdvpKAEvfAKOcsIqRdcRklFBFlJEWUASFaKxjdAsKWnBGhZGX' );
+define( 'LOGGED_IN_SALT', 'aEaODbJwPsYUkyNTliZKzsyIPmZnIDhVVtaeSxnjbarQCVoMJihJWkpAaVMnqctd' );
+define( 'NONCE_SALT', 'WsiRgDWjpJIikcIAZWSfMinNZGRbHAiGYzXlcasVODDGZONUyBkhBheqiAwinNXO' );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
