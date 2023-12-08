@@ -11,6 +11,18 @@
     "numberOfPosts": {
       "type": "number",
       "default": 5
+    },
+    "order": {
+      "type": "string",
+      "default": "desc"
+    },
+    "category": {
+      "type": "string",
+      "default": "all"
+    },
+    "author": {
+      "type": "string",
+      "default": "all"
     }
   },
   "example": {},

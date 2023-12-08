@@ -29,11 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	// numberOfPosts
 	$numberOfPosts = $attr['numberOfPosts'];
+	$
 
-
-
-
-	
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => 3,
