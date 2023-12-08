@@ -26,9 +26,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
  function  dynamic_block_latest_posts($attr) {
+	
 	// numberOfPosts
 	$numberOfPosts = $attr['numberOfPosts'];
-	echo "<h1>Number of posts: $numberOfPosts </h1>";
+
 
 
 
