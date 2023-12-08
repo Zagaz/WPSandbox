@@ -35,21 +35,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 	$numberOfPosts,
+		'posts_per_page' => 3,
 		'order' => 'DESC',
 		'orderby' => 'date',
 	);
 	$posts = get_posts($args);
-	if (empty($posts)) {
-		return 'No posts';
-	}
-	$markup = '<ul>';
-	foreach ($posts as $post) {
-		$markup .= '<li><a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a></li>';
-	}
-	$markup .= '</ul>';
-	return $markup;
+// 	if (empty($posts)) {
+// 		return 'No posts';
+// 	}
+// 	$markup = '<ul>';
+// 	foreach ($posts as $post) {
+// 		$markup .= '<li><a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a></li>';
+// 	}
+// 	$markup .= '</ul>';
+// 	return $markup;
+// convert post to JSON
+	$posts = array_map(function ($post) {
+		return [
+			'id' => $post->ID,
+			'title' => $post->post_title,
+			'content' => $post->post_content,
+			'excerpt' => $post->post_excerpt,
+			'link' => get_permalink($post->ID),
+			'featuredImage' => get_the_post_thumbnail_url($post->ID),
+			'author' => get_the_author_meta('display_name', $post->post_author),
+			'date' => $post->post_date,
+		];
+	}, $posts);
+	return(
+		JSON_encode($posts)
+		);
+	
+
 }
+
 
 
 function dynamic_block_dynamic_block_block_init() {
