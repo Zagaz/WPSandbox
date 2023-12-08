@@ -25,23 +25,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 
+ function  dynamic_block_latest_posts($attr) {
+	// numberOfPosts
+	$numberOfPosts = $attr['numberOfPosts'];
+	echo "<h1>Number of posts: $numberOfPosts </h1>";
 
 
 
-function dynamic_block_dynamic_block_block_init() {
-	register_block_type( __DIR__ . '/build',array(
-		'render_callback' => 'dynamic_block_latest_posts',
-		
-	) );
-}
-add_action( 'init', 'dynamic_block_dynamic_block_block_init' );
-
-
-function  dynamic_block_latest_posts() {
 	
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 3,
+		'posts_per_page' => 	$numberOfPosts,
 		'order' => 'DESC',
 		'orderby' => 'date',
 	);
@@ -56,3 +50,14 @@ function  dynamic_block_latest_posts() {
 	$markup .= '</ul>';
 	return $markup;
 }
+
+
+function dynamic_block_dynamic_block_block_init() {
+	register_block_type( __DIR__ . '/build',array(
+		'render_callback' => 'dynamic_block_latest_posts',
+		
+	) );
+}
+add_action( 'init', 'dynamic_block_dynamic_block_block_init' );
+
+
