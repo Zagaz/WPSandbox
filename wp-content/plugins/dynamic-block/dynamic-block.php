@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	// numberOfPosts
 	$numberOfPosts = $attr['numberOfPosts'];
-	$
+	
 
 	$args = array(
 		'post_type' => 'post',
@@ -60,10 +60,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'date' => $post->post_date,
 		];
 	}, $posts);
-	return(
-		JSON_encode($posts)
-		);
-	
+
+	ob_start(); ?>
+	<div class = "post__wrapper">
+		<?php 
+	foreach ($posts as $post) {
+		?>
+		<div class="post__card">
+			<div class="post__image">
+				<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
+			</div>
+			<div class="post__content">
+				<h2 class="post__title">
+					<a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
+				</h2>
+				<div class="post__meta">
+					<span class="post__author">By <?php echo $post['author']; ?></span>
+					<span class="post__date"><?php echo $post['date']; ?></span>
+				</div>
+				<div class="post__excerpt">
+					<?php echo $post['excerpt']; ?>
+				</div>
+			</div>
+		</div>
+		<?php
+	} ?>
+	</div>
+	<?php
+return ( ob_get_clean());
+
+
+
 
 }
 

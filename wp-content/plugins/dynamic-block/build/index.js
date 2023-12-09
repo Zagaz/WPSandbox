@@ -90,6 +90,12 @@ function Edit({
       'per_page': -1
     });
   });
+  // get all authors
+  const authors = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
+    return select('core').getEntityRecords('taxonomy', 'author', {
+      'per_page': -1
+    });
+  });
   console.log(posts);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   7;

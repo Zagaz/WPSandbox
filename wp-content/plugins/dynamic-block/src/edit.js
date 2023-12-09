@@ -50,6 +50,11 @@ export default function Edit({attributes, setAttributes}) {
   const categories = useSelect((select) => {
     return select('core').getEntityRecords('taxonomy', 'category', {'per_page': -1});
   });
+  // get all authors
+  const authors = useSelect((select) => {
+    return select('core').getEntityRecords('taxonomy', 'author', {'per_page': -1});
+  });
+  
 
 
   
