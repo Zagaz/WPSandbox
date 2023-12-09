@@ -8,9 +8,9 @@
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
 	"attributes": {
-		"numberOfPosts": {
+		"postsPerPage": {
 			"type": "number",
-			"default": 5
+			"default": 4
 		},
 		"order": {
 			"type": "string",

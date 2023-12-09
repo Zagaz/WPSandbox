@@ -23,10 +23,10 @@ import './editor.scss';
  */
 
 export default function Edit({attributes, setAttributes}) {
-  const {numberOfPosts, order , category , author} = attributes;
+  const {postsPerPage, order , category , author} = attributes;
   // Events
-  function onChangeNumberOfPosts(newNumberOfPosts) {
-	    setAttributes({numberOfPosts: newNumberOfPosts});
+  function onChangepostsPerPage(newpostsPerPage) {
+	    setAttributes({postsPerPage: newpostsPerPage});
   }
   function onChangeOrder(newOrder) {
 	    setAttributes({order: newOrder});
@@ -43,8 +43,8 @@ export default function Edit({attributes, setAttributes}) {
   //End Events
 
   const posts = useSelect((select) => {
-    return select('core').getEntityRecords('postType', 'post', {'per_page': numberOfPosts});
-    [numberOfPosts]
+    return select('core').getEntityRecords('postType', 'post', {'per_page': postsPerPage});
+    [postsPerPage]
   });
  // get all categories
   const categories = useSelect((select) => {
@@ -84,8 +84,8 @@ export default function Edit({attributes, setAttributes}) {
 				>
 					<TextControl
 						label="Number of Posts"
-						value={numberOfPosts}
-						onChange={onChangeNumberOfPosts}
+						value={postsPerPage}
+						onChange={onChangepostsPerPage}
 					/>
 				</PanelRow>
 				{/* Order */}

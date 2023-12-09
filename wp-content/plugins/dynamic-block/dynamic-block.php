@@ -26,14 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
  function  dynamic_block_latest_posts($attr) {
-	
-	// numberOfPosts
-	$numberOfPosts = $attr['numberOfPosts'];
+	$postsPerPage = $attr['postsPerPage'];
 	
 
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 3,
+		'posts_per_page' => $postsPerPage,
 		'order' => 'DESC',
 		'orderby' => 'date',
 	);
@@ -60,13 +58,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'date' => $post->post_date,
 		];
 	}, $posts);
+	
+	// constant 
 
-	ob_start(); ?>
-	<div class = "post__wrapper">
+
+
+
+	
+	
+	ob_start();
+
+	
+	
+	?>
+	 
+	<div >
+
 		<?php 
 	foreach ($posts as $post) {
 		?>
-		<div class="post__card">
+		<div
+		<?php 
+			echo get_block_wrapper_attributes();
+			?>
+		  >
 			<div class="post__image">
 				<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
 			</div>
