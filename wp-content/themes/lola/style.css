@@ -66,11 +66,25 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+
+ /**
+ *BLOCKS
+ */
  .site{
 	max-width: 800px;
 	margin-left : auto;
 	margin-right : auto;
+	
  }
+
+ body {
+	background-color: #c9e5f0 !important;
+	font-family: 'Roboto', sans-serif !important;
+ }
+ /**
+ *END BLOCKS
+ */
+
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
@@ -476,9 +490,9 @@ big {
 
 /* Elements
 --------------------------------------------- */
-body {
+/* body {
 	background: #fff;
-}
+} */
 
 hr {
 	background-color: #ccc;
