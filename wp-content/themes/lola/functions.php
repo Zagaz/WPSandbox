@@ -46,6 +46,30 @@ function lola_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+	//=========================
+	//BLOCKS
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'style-editor.css' );
+	add_theme_support(('responsive-embeds'));
+	add_theme_support( 'align-wide' );
+	add_theme_support('editor-color-palette', array(
+		array(
+			'name' => esc_attr__( 'strong magenta', 'lola' ),
+			'slug' => 'strong-magenta',
+			'color' => '#a156b4',
+		),
+		array(
+			'name' => esc_attr__( 'light grayish magenta', 'lola' ),
+			'slug' => 'light-grayish-magenta',
+			'color' => '#d0a5db',
+		),
+	));
+
+
+
+
+	//=========================
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
