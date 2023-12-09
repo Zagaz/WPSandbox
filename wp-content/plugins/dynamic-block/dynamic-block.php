@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       ZAGAZ - Latest Posts
  * Description:       Example block scaffolded with Create Block tool.
@@ -13,7 +14,7 @@
  * @package           latest-posts
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -25,9 +26,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 
- function  dynamic_block_latest_posts($attr) {
+function  dynamic_block_latest_posts($attr)
+{
 	$postsPerPage = $attr['postsPerPage'];
-	
+
 
 	$args = array(
 		'post_type' => 'post',
@@ -36,16 +38,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'orderby' => 'date',
 	);
 	$posts = get_posts($args);
-// 	if (empty($posts)) {
-// 		return 'No posts';
-// 	}
-// 	$markup = '<ul>';
-// 	foreach ($posts as $post) {
-// 		$markup .= '<li><a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a></li>';
-// 	}
-// 	$markup .= '</ul>';
-// 	return $markup;
-// convert post to JSON
+	// 	if (empty($posts)) {
+	// 		return 'No posts';
+	// 	}
+	// 	$markup = '<ul>';
+	// 	foreach ($posts as $post) {
+	// 		$markup .= '<li><a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a></li>';
+	// 	}
+	// 	$markup .= '</ul>';
+	// 	return $markup;
+	// convert post to JSON
 	$posts = array_map(function ($post) {
 		return [
 			'id' => $post->ID,
@@ -58,65 +60,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'date' => $post->post_date,
 		];
 	}, $posts);
-	
-	// constant 
-
-
-
-
-	
-	
 	ob_start();
 
-	
-	
-	?>
-	 
-	<div >
-
-		<?php 
-	foreach ($posts as $post) {
-		?>
-		<div
-		<?php 
-			echo get_block_wrapper_attributes();
-			?>
-		  >
-			<div class="post__image">
-				<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
-			</div>
-			<div class="post__content">
-				<h2 class="post__title">
-					<a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
-				</h2>
-				<div class="post__meta">
-					<span class="post__author">By <?php echo $post['author']; ?></span>
-					<span class="post__date"><?php echo $post['date']; ?></span>
-				</div>
-				<div class="post__excerpt">
-					<?php echo $post['excerpt']; ?>
-				</div>
-			</div>
-		</div>
-		<?php
+	if (empty($posts)) {
+		return 'No posts';
 	} ?>
+	<div <?php echo  get_block_wrapper_attributes()  ?>>
+		<?php foreach ($posts as $post) { ?>
+			<div class="post__card">
+				<div class="post__image">
+					<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
+				</div>
+				<div class="post__content">
+					<h2 class="post__title">
+						<a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
+					</h2>
+					<div class="post__meta">
+						<span class="post__author">By <?php echo $post['author']; ?></span>
+						<span class="post__date"><?php echo $post['date']; ?></span>
+					</div>
+					<div class="post__excerpt">
+						<?php echo $post['excerpt']; ?>
+					</div>
+				</div>
+			</div>
+		<?php
+		} ?>
 	</div>
-	<?php
-return ( ob_get_clean());
-
-
-
-
+<?php
+	return (ob_get_clean());
 }
 
 
 
-function dynamic_block_dynamic_block_block_init() {
-	register_block_type( __DIR__ . '/build',array(
+function dynamic_block_dynamic_block_block_init()
+{
+	register_block_type(__DIR__ . '/build', array(
 		'render_callback' => 'dynamic_block_latest_posts',
-		
-	) );
+
+	));
 }
-add_action( 'init', 'dynamic_block_dynamic_block_block_init' );
-
-
+add_action('init', 'dynamic_block_dynamic_block_block_init');
