@@ -27,7 +27,7 @@
   min-width: 270px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.wp-block-latest-posts-dynamic-block .post__card .post_image {
+.wp-block-latest-posts-dynamic-block .post__card .post__image img {
   -o-object-fit: cover;
      object-fit: cover;
   aspect-ratio: 16/9;
