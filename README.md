@@ -18,6 +18,7 @@ The primary purpose of this repository is to provide a safe and isolated space f
 
 The primary focus of this repository is the development of a dynamic Gutenberg Custom Block. This block aims to offer flexibility and control over how posts are presented on the front page. Here are some key features of the custom block:
 - **Location:** `wp-content/plugins/dynamic-block`
+- [The code](https://github.com/Zagaz/WPSandbox/tree/main/wp-content/plugins/dynamic-block "The code")
 
 - **Customizable Sidebar**: Users can easily adjust settings via the sidebar, allowing for fine-tuning of the displayed posts.
   - **Number of Posts**: Specify the number of posts to be displayed on the front page.
@@ -26,6 +27,3 @@ The primary focus of this repository is the development of a dynamic Gutenberg C
   - **Categories**: Categorize and display posts based on user preferences.
 
 - **Element Visibility**: Users have the freedom to choose which elements will be displayed on the front end. This ensures a tailored and seamless integration with your website.
-
-
-
