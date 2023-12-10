@@ -65,7 +65,7 @@ function  dynamic_block_latest_posts($attr)
 				</div>
 				<div class="post__content">
 					<h2 class="post__title">
-						<a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
+						<a class= "post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
 					</h2>
 					<div class="post__meta">
 						<span class="post__author">By <?php echo $post['author']; ?></span>

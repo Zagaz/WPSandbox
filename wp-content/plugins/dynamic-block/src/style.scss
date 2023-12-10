@@ -16,16 +16,13 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-
+	
 	.post__card {
 		padding: 20px;
 		margin: 20px;
 		background-color: #fff;
 		color: #000;
 		min-width: 270px;
-	
-
-		//shadow  
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
 		.post_image {
@@ -37,26 +34,34 @@
 		.post__content {
 			display: flex;
 			flex-direction: column;
+			a{
+				text-decoration: none;
+				color:rgba(0, 0, 0, 0.8)
+			}
+			a:hover{
+				color: #21759b;
+			}
+			.post__title{
 
-			.post_title {
-				a {
-					text-transform: uppercase;
-					font-size: 30px;
-				}
-
-
+				text-decoration: none;
+				font-size: 1.5rem;
+				font-weight: bold;
+				text-align: left;
+				margin: 10px 0;
+				text-transform: uppercase;
 			}
 
-			.post_meta {
+			.post__meta {
 				.post_author {}
 
 				.post_date {}
 
-				.post_experpt {
+				
+			}
+			.post_experpt {
 
-					text-align: justify;
+				text-align: justify;
 
-				}
 			}
 
 
