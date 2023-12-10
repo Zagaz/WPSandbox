@@ -14,7 +14,7 @@
     },
     "order": {
       "type": "string",
-      "default": "desc"
+      "default": "DESC"
     },
     "category": {
       "type": "string",

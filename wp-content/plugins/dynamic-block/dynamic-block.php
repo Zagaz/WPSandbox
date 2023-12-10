@@ -29,25 +29,17 @@ if (!defined('ABSPATH')) {
 function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = $attr['postsPerPage'];
+	$order = strtoupper($attr['order']);
 
 
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
-		'order' => 'DESC',
+		'order' => $order,
 		'orderby' => 'date',
 	);
 	$posts = get_posts($args);
-	// 	if (empty($posts)) {
-	// 		return 'No posts';
-	// 	}
-	// 	$markup = '<ul>';
-	// 	foreach ($posts as $post) {
-	// 		$markup .= '<li><a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a></li>';
-	// 	}
-	// 	$markup .= '</ul>';
-	// 	return $markup;
-	// convert post to JSON
+
 	$posts = array_map(function ($post) {
 		return [
 			'id' => $post->ID,
@@ -61,7 +53,7 @@ function  dynamic_block_latest_posts($attr)
 		];
 	}, $posts);
 	ob_start();
-
+	
 	if (empty($posts)) {
 		return 'No posts';
 	} ?>

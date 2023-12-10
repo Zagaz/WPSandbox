@@ -11,7 +11,9 @@ import {
 	PanelBody, 
 	PanelRow, 
 	RadioControl,
-	SelectControl } from '@wordpress/components';
+	SelectControl,
+	ToggleControl
+ } from '@wordpress/components';
 import './editor.scss';
 
 /**
@@ -97,10 +99,12 @@ export default function Edit({attributes, setAttributes}) {
 						label="Order"
 						selected={order}
 						options={[
-							{ label: 'Ascending', value: 'asc' },
-							{ label: 'Descending', value: 'desc' },
+							{ label: 'Ascending', value: 'ASC' },
+							{ label: 'Descending', value: 'DESC' },
 						]}
 						onChange={onChangeOrder}
+						value = {order}
+						
 					/>
 				</PanelRow>
 				{/* Category SELECT */}
@@ -121,6 +125,19 @@ export default function Edit({attributes, setAttributes}) {
 					
 				
 				</PanelRow>
+				<PanelRow
+					heading="Order"
+					description="How should the posts be ordered?"
+				>
+					<ToggleControl 
+					label="Order"
+					checked={'desc' === order}
+					onChange={onChangeOrder}
+					
+					
+					/>
+				</PanelRow>
+					
 
 				
 			</PanelBody>
