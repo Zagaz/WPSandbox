@@ -8,5 +8,58 @@
 .wp-block-latest-posts-dynamic-block {
 	background-color: #21759b;
 	color: #fff;
-	padding: 2px;
+	margin: 20px !important;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+
+	.post__card {
+		padding: 20px;
+		margin: 20px;
+		background-color: #fff;
+		color: #000;
+		min-width: 270px;
+	
+
+		//shadow  
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+		.post_image {
+			object-fit: cover;
+			aspect-ratio: 16/9;
+			width: 100%;
+		}
+
+		.post__content {
+			display: flex;
+			flex-direction: column;
+
+			.post_title {
+				a {
+					text-transform: uppercase;
+					font-size: 30px;
+				}
+
+
+			}
+
+			.post_meta {
+				.post_author {}
+
+				.post_date {}
+
+				.post_experpt {
+
+					text-align: justify;
+
+				}
+			}
+
+
+		}
+	}
 }

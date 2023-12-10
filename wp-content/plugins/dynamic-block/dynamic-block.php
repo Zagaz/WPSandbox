@@ -43,7 +43,7 @@ function  dynamic_block_latest_posts($attr)
 	$posts = array_map(function ($post) {
 		return [
 			'id' => $post->ID,
-			'title' => $post->post_title,
+			'title' => $post->post_title ? $post->post_title : 'No Title',
 			'content' => $post->post_content,
 			'excerpt' => $post->post_excerpt,
 			'link' => get_permalink($post->ID),

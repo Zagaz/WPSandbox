@@ -10,7 +10,39 @@
 .wp-block-latest-posts-dynamic-block {
   background-color: #21759b;
   color: #fff;
-  padding: 2px;
+  margin: 20px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.wp-block-latest-posts-dynamic-block .post__card {
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  color: #000;
+  min-width: 270px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.wp-block-latest-posts-dynamic-block .post__card .post_image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+.wp-block-latest-posts-dynamic-block .post__card .post__content {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-latest-posts-dynamic-block .post__card .post__content .post_title a {
+  text-transform: uppercase;
+  font-size: 30px;
+}
+.wp-block-latest-posts-dynamic-block .post__card .post__content .post_meta .post_experpt {
+  text-align: justify;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
