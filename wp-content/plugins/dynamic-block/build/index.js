@@ -49,15 +49,15 @@ function Edit({
   setAttributes
 }) {
   const {
-    numberOfPosts,
+    postsPerPage,
     order,
     category,
     author
   } = attributes;
   // Events
-  function onChangeNumberOfPosts(newNumberOfPosts) {
+  function onChangepostsPerPage(newpostsPerPage) {
     setAttributes({
-      numberOfPosts: newNumberOfPosts
+      postsPerPage: newpostsPerPage
     });
   }
   function onChangeOrder(newOrder) {
@@ -80,9 +80,9 @@ function Edit({
 
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     return select('core').getEntityRecords('postType', 'post', {
-      'per_page': numberOfPosts
+      'per_page': postsPerPage
     });
-    [numberOfPosts];
+    [postsPerPage];
   });
   // get all categories
   const categories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
@@ -117,8 +117,8 @@ function Edit({
     description: "How many posts should be displayed?"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
     label: "Number of Posts",
-    value: numberOfPosts,
-    onChange: onChangeNumberOfPosts
+    value: postsPerPage,
+    onChange: onChangepostsPerPage
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Order",
     description: "How should the posts be ordered?"
@@ -127,12 +127,13 @@ function Edit({
     selected: order,
     options: [{
       label: 'Ascending',
-      value: 'asc'
+      value: 'ASC'
     }, {
       label: 'Descending',
-      value: 'desc'
+      value: 'DESC'
     }],
-    onChange: onChangeOrder
+    onChange: onChangeOrder,
+    value: order
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Category",
     description: "Select a category"
@@ -147,6 +148,13 @@ function Edit({
       value: id
     })),
     onChange: onChangeCategory
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    heading: "Order",
+    description: "How should the posts be ordered?"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+    label: "Order",
+    checked: 'desc' === order,
+    onChange: onChangeOrder
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts && posts.map(post => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: post.id
@@ -316,7 +324,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"numberOfPosts":{"type":"number","default":5},"order":{"type":"string","default":"desc"},"category":{"type":"string","default":"all"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"string","default":"DESC"},"category":{"type":"string","default":"all"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
