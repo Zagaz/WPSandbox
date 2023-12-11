@@ -4,23 +4,19 @@ import {useSelect} from '@wordpress/data';
 import {RawHTML} from '@wordpress/element';
 import {dateI18n, format, __experimentalGetSettings} 
 from '@wordpress/date';
-import { useState } from 'react';
+
 import { 
 	Spinner , 
-	TextControl, 
 	Panel, 
 	PanelBody, 
 	PanelRow, 
 	RadioControl,
 	SelectControl,
 	ToggleControl,
-	CheckboxControl,
-	ToggleControl,
-	CheckboxControl
  } from '@wordpress/components';
 import './editor.scss';
 import React from 'react';
-import React from 'react';
+
 
 /**
  * Edit function for the dynamic block.
@@ -72,11 +68,14 @@ export default function Edit({attributes, setAttributes}) {
   if (!posts) {
     return(<>
     <Spinner />;
-    <p>{__('Loading...')}</p>
+    <p>{__('Loading...', 'dynamic-block')}</p>
         </>) 
   }	
   if (0 === posts.length) {
     return <p>{__('No posts')}</p>;
+  }
+  if (!posts){
+	  return <p>{__('No posts')}</p>;
   }
 
    return (
@@ -86,14 +85,13 @@ export default function Edit({attributes, setAttributes}) {
 			<PanelBody title="Number of Posts" initialOpen={true}>
 				{/* Number of Posts */}
 				<PanelRow
-					heading="Number of Posts"
-					description="How many posts should be displayed?"
+					heading= {__("Number of Posts", 'dynamic-block')}
+					description={__( "How many posts should be displayed?" , "dynamic-block" )}
 				>
-					<TextControl
-						label="Number of Posts"
-						value={postsPerPage}
-						onChange={onChangepostsPerPage}
-					/>
+					<input type="number" value={postsPerPage} onChange={(event)=>{
+						onChangepostsPerPage(event.target.value);
+					}
+					}/>
 				</PanelRow>
 				{/* Order */}
 				<PanelRow
@@ -158,10 +156,33 @@ export default function Edit({attributes, setAttributes}) {
 	 
 	  
 	 </InspectorControls>
+	 <h1> List of posts</h1>
 
-<h1>The plugin</h1>
+							<ul>
+								{posts.map((post) => {
+									return (
+										<li key={post.id}>
+											<a href={post.link}>{post.title.rendered}</a>
+											<br />
+											<RawHTML>{post.excerpt.rendered}</RawHTML>
+											<br />
+											<RawHTML>
+												{__('Published on', 'dynamic-block')}{' '}
+												{format(
+													__experimentalGetSettings().formats.date,
+													dateI18n(
+														__experimentalGetSettings().formats.date,
+														post.date
+													)
+												)}
+											</RawHTML>
+										</li>
+									);
+								})}
 
-<h1>The plugin</h1>
+							</ul>
+
+
 
 	 
 	

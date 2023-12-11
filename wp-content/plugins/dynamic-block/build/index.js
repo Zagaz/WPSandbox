@@ -37,7 +37,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Edit function for the dynamic block.
  *
@@ -104,9 +103,12 @@ function Edit({
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   7;
   if (!posts) {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, null), ";", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Loading...')));
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, null), ";", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Loading...', 'dynamic-block')));
   }
   if (0 === posts.length) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No posts'));
+  }
+  if (!posts) {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No posts'));
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -117,12 +119,14 @@ function Edit({
     title: "Number of Posts",
     initialOpen: true
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-    heading: "Number of Posts",
-    description: "How many posts should be displayed?"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
-    label: "Number of Posts",
+    heading: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Number of Posts", 'dynamic-block'),
+    description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("How many posts should be displayed?", "dynamic-block")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "number",
     value: postsPerPage,
-    onChange: onChangepostsPerPage
+    onChange: event => {
+      onChangepostsPerPage(event.target.value);
+    }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Order",
     description: "How should the posts be ordered?"
@@ -149,7 +153,6 @@ function Edit({
     label: "Category",
     multiple: true,
     value: category,
-<<<<<<< HEAD
     options: categories.map(category => ({
       label: category.name,
       value: category.id
@@ -159,16 +162,6 @@ function Edit({
         category: category
       });
     }
-=======
-    multiple: true,
-    onChange: () => setAttributes({
-      category: category
-    }),
-    options: categories.map(category => ({
-      label: category.name,
-      value: category.id
-    }))
->>>>>>> df7e5820640eaa23b170ee06d88e25797ce7f23f
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Order",
     description: "How should the posts be ordered?"
@@ -176,7 +169,13 @@ function Edit({
     label: "Order",
     checked: 'desc' === order,
     onChange: onChangeOrder
-  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "The plugin"));
+  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " List of posts"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts.map(post => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      key: post.id
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: post.link
+    }, post.title.rendered), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, null, post.excerpt.rendered), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Published on', 'dynamic-block'), ' ', (0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.format)((0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.__experimentalGetSettings)().formats.date, (0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.dateI18n)((0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.__experimentalGetSettings)().formats.date, post.date))));
+  })));
 }
 
 /***/ }),
@@ -339,11 +338,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-<<<<<<< HEAD
 module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
-=======
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"string","default":"DESC"},"category":{"type":"array"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
->>>>>>> df7e5820640eaa23b170ee06d88e25797ce7f23f
 
 /***/ })
 
