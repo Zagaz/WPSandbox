@@ -14,7 +14,7 @@ import {
 	RadioControl,
 	SelectControl,
 	ToggleControl,
-	CheckboxControl
+	CheckboxControl,
 	ToggleControl,
 	CheckboxControl
  } from '@wordpress/components';
