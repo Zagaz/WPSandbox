@@ -30,12 +30,24 @@ function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
+	$category = $attr['category'];
+
+$categories = array();
+	foreach ($category as $cat) {
+		// get cat by name 
+		$cat = get_the_category_by_ID($cat);
+		array_push($categories, $cat);
+	}
+
+	$categories_string  = (implode(',', $categories));
+
 
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
 		'order' => $order,
 		'orderby' => 'date',
+		"category_name" => $categories_string,
 	);
 	$posts = get_posts($args);
 
@@ -49,11 +61,17 @@ function  dynamic_block_latest_posts($attr)
 			'featuredImage' => get_the_post_thumbnail_url($post->ID),
 			'author' => get_the_author_meta('display_name', $post->post_author),
 			'date' => $post->post_date,
+			
 		];
 	}, $posts);
 	ob_start();
 	echo $postsPerPage;
+	echo "<br>";
 	echo $order;
+	echo "<br>";
+	echo $categories_string;
+	echo "<br>";
+
 	
 	if (empty($posts)) {
 		return 'No posts';

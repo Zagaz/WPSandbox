@@ -13,9 +13,11 @@ import {
 	PanelRow, 
 	RadioControl,
 	SelectControl,
-	ToggleControl
+	ToggleControl,
+	CheckboxControl
  } from '@wordpress/components';
 import './editor.scss';
+import React from 'react';
 
 /**
  * Edit function for the dynamic block.
@@ -62,10 +64,6 @@ export default function Edit({attributes, setAttributes}) {
   
   
  
-
-  
-  
-  console.log(posts);
 
   const blockProps = useBlockProps();7
   if (!posts) {
@@ -117,16 +115,21 @@ export default function Edit({attributes, setAttributes}) {
 					heading="Category"
 					description="Select a category"
 				>
+					
+			{/** Here I need to mak a multiple choice select */}
 					<SelectControl
 						label="Category"
 						value={category}
-						options={categories.map(({ id, name }) => ({
-							label: name,
-							value: id,
-
-					}))}
-						onChange={onChangeCategory}
+						multiple
+						onChange={()=>setAttributes({category: category})}
+						options={categories.map((category) => ({
+							label: category.name,
+							value: category.id,
+						}))}
 					/>
+
+
+	
 					
 				
 				</PanelRow>
@@ -151,11 +154,14 @@ export default function Edit({attributes, setAttributes}) {
 	  
 	 </InspectorControls>
 
+<h1>The plugin</h1>
+
 	 
 	
 	
 	
 	
     </div>
+
   );
 }
