@@ -56,10 +56,12 @@ function  dynamic_block_latest_posts($attr)
 			'featuredImage' => get_the_post_thumbnail_url($post->ID),
 			'author' => get_the_author_meta('display_name', $post->post_author),
 			'date' => $post->post_date,
+			
 		];
 	}, $posts);
 	ob_start();
 	echo $postsPerPage;
+	echo "<br>";
 	echo $order;
 	echo '<pre>';
 	var_dump( $category );	

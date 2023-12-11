@@ -101,7 +101,6 @@ function Edit({
   });
   // order
 
-  console.log(posts);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   7;
   if (!posts) {
@@ -150,6 +149,7 @@ function Edit({
     label: "Category",
     multiple: true,
     value: category,
+<<<<<<< HEAD
     options: categories.map(category => ({
       label: category.name,
       value: category.id
@@ -159,6 +159,16 @@ function Edit({
         category: category
       });
     }
+=======
+    multiple: true,
+    onChange: () => setAttributes({
+      category: category
+    }),
+    options: categories.map(category => ({
+      label: category.name,
+      value: category.id
+    }))
+>>>>>>> df7e5820640eaa23b170ee06d88e25797ce7f23f
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Order",
     description: "How should the posts be ordered?"
@@ -329,7 +339,11 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
+<<<<<<< HEAD
 module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+=======
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"string","default":"DESC"},"category":{"type":"array"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+>>>>>>> df7e5820640eaa23b170ee06d88e25797ce7f23f
 
 /***/ })
 

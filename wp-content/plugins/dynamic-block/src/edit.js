@@ -15,8 +15,11 @@ import {
 	SelectControl,
 	ToggleControl,
 	CheckboxControl
+	ToggleControl,
+	CheckboxControl
  } from '@wordpress/components';
 import './editor.scss';
+import React from 'react';
 import React from 'react';
 
 /**
@@ -64,10 +67,6 @@ export default function Edit({attributes, setAttributes}) {
   
   
  
-
-  
-  
-  console.log(posts);
 
   const blockProps = useBlockProps();7
   if (!posts) {
@@ -119,6 +118,8 @@ export default function Edit({attributes, setAttributes}) {
 					heading="Category"
 					description="Select a category"
 				>
+					
+			{/** Here I need to mak a multiple choice select */}
 					<SelectControl
 						label="Category"
 						multiple
@@ -160,12 +161,15 @@ export default function Edit({attributes, setAttributes}) {
 
 <h1>The plugin</h1>
 
+<h1>The plugin</h1>
+
 	 
 	
 	
 	
 	
     </div>
+
 
   );
 }
