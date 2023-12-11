@@ -107,7 +107,7 @@ export default function Edit({attributes, setAttributes}) {
 							{ label: 'Descending', value: 'DESC' },
 						]}
 						onChange={(order)=>{
-						onchangeOrder(order);
+							setAttributes({order: order});git 
 						}}
 						
 					/>
