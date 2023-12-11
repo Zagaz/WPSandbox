@@ -89,7 +89,8 @@ function Edit({
   // get all categories
   const categories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     return select('core').getEntityRecords('taxonomy', 'category', {
-      'per_page': -1
+      'per_page': -1,
+      'exclude': [1]
     });
   });
   // get all authors
