@@ -137,7 +137,10 @@ function Edit({
       value: 'DESC'
     }],
     onChange: order => {
-      onchangeOrder(order);
+      setAttributes({
+        order: order
+      });
+      git;
     }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Category",
