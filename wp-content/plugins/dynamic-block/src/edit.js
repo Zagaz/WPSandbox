@@ -4,6 +4,7 @@ import {useSelect} from '@wordpress/data';
 import {RawHTML} from '@wordpress/element';
 import {dateI18n, format, __experimentalGetSettings} 
 from '@wordpress/date';
+import { useState } from 'react';
 import { 
 	Spinner , 
 	TextControl, 
@@ -26,6 +27,7 @@ import './editor.scss';
 
 export default function Edit({attributes, setAttributes}) {
   const {postsPerPage, order , category , author} = attributes;
+
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
 	    setAttributes({postsPerPage: newpostsPerPage});
@@ -56,8 +58,10 @@ export default function Edit({attributes, setAttributes}) {
   const authors = useSelect((select) => {
     return select('core').getEntityRecords('taxonomy', 'author', {'per_page': -1});
   });
+  // order
   
-
+  
+ 
 
   
   
@@ -102,8 +106,9 @@ export default function Edit({attributes, setAttributes}) {
 							{ label: 'Ascending', value: 'ASC' },
 							{ label: 'Descending', value: 'DESC' },
 						]}
-						onChange={onChangeOrder}
-						value = {order}
+						onChange={(order)=>{
+						onchangeOrder(order);
+						}}
 						
 					/>
 				</PanelRow>
@@ -145,26 +150,12 @@ export default function Edit({attributes, setAttributes}) {
 	 
 	  
 	 </InspectorControls>
-	
-	
-	
-	
-      <ul>
-        {posts && posts.map((post) => {
-          return (
-            <li key={post.id}>
 
-              <h5>
-                <a href={post.link}>
-                  {post.title.rendered
-                    ? <RawHTML>{post.title.rendered}</RawHTML>
-                    : __('(Untitled)')}
-                </a>
-              </h5>
-            </li>
-          )
-        })}
-      </ul>
+	 
+	
+	
+	
+	
     </div>
   );
 }

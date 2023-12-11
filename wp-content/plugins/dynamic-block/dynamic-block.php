@@ -31,7 +31,6 @@ function  dynamic_block_latest_posts($attr)
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
 
-
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
@@ -53,6 +52,8 @@ function  dynamic_block_latest_posts($attr)
 		];
 	}, $posts);
 	ob_start();
+	echo $postsPerPage;
+	echo $order;
 	
 	if (empty($posts)) {
 		return 'No posts';

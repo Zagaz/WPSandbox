@@ -36,6 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Edit function for the dynamic block.
  *
@@ -54,6 +55,7 @@ function Edit({
     category,
     author
   } = attributes;
+
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
     setAttributes({
@@ -96,6 +98,8 @@ function Edit({
       'per_page': -1
     });
   });
+  // order
+
   console.log(posts);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   7;
@@ -132,8 +136,9 @@ function Edit({
       label: 'Descending',
       value: 'DESC'
     }],
-    onChange: onChangeOrder,
-    value: order
+    onChange: order => {
+      onchangeOrder(order);
+    }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Category",
     description: "Select a category"
@@ -155,13 +160,7 @@ function Edit({
     label: "Order",
     checked: 'desc' === order,
     onChange: onChangeOrder
-  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts && posts.map(post => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-      key: post.id
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h5", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      href: post.link
-    }, post.title.rendered ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, null, post.title.rendered) : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('(Untitled)'))));
-  })));
+  }))))));
 }
 
 /***/ }),
