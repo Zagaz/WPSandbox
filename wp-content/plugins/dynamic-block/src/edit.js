@@ -13,9 +13,11 @@ import {
 	PanelRow, 
 	RadioControl,
 	SelectControl,
-	ToggleControl
+	ToggleControl,
+	CheckboxControl
  } from '@wordpress/components';
 import './editor.scss';
+import React from 'react';
 
 /**
  * Edit function for the dynamic block.
@@ -119,14 +121,19 @@ export default function Edit({attributes, setAttributes}) {
 				>
 					<SelectControl
 						label="Category"
+						multiple
 						value={category}
-						options={categories.map(({ id, name }) => ({
-							label: name,
-							value: id,
-
-					}))}
-						onChange={onChangeCategory}
+						options={categories.map((category) => ({
+							label: category.name,
+							value: category.id,
+						}))}
+						onChange={(category)=>{
+							setAttributes({category: category});
+						}	
+						}
 					/>
+
+				
 					
 				
 				</PanelRow>
@@ -151,11 +158,14 @@ export default function Edit({attributes, setAttributes}) {
 	  
 	 </InspectorControls>
 
+<h1>The plugin</h1>
+
 	 
 	
 	
 	
 	
     </div>
+
   );
 }

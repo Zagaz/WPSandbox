@@ -30,12 +30,19 @@ function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
+	 $category = $attr['category'];
+	 $categories = [];
+	 foreach ($category as $cat) {
+		array_push($categories,get_the_category_by_ID($cat));
+	 }
+	 $categories_string = implode(",",$categories);
 
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
 		'order' => $order,
 		'orderby' => 'date',
+		'category_name' =>  $categories_string 
 	);
 	$posts = get_posts($args);
 
@@ -54,6 +61,9 @@ function  dynamic_block_latest_posts($attr)
 	ob_start();
 	echo $postsPerPage;
 	echo $order;
+	echo '<pre>';
+	var_dump( $category );	
+	echo '</pre>';
 	
 	if (empty($posts)) {
 		return 'No posts';
@@ -74,6 +84,11 @@ function  dynamic_block_latest_posts($attr)
 					</div>
 					<div class="post__excerpt">
 						<?php echo $post['excerpt']; ?>
+					</div>
+					<div class="post_categories">
+						<?php echo get_the_category_list( ', ', '', $post['id'] ); ?>
+						
+
 					</div>
 				</div>
 			</div>
