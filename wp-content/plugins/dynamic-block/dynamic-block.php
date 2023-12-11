@@ -31,7 +31,6 @@ function  dynamic_block_latest_posts($attr)
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
 
-
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
@@ -43,7 +42,7 @@ function  dynamic_block_latest_posts($attr)
 	$posts = array_map(function ($post) {
 		return [
 			'id' => $post->ID,
-			'title' => $post->post_title,
+			'title' => $post->post_title ? $post->post_title : 'No Title',
 			'content' => $post->post_content,
 			'excerpt' => $post->post_excerpt,
 			'link' => get_permalink($post->ID),
@@ -53,6 +52,8 @@ function  dynamic_block_latest_posts($attr)
 		];
 	}, $posts);
 	ob_start();
+	echo $postsPerPage;
+	echo $order;
 	
 	if (empty($posts)) {
 		return 'No posts';
@@ -65,7 +66,7 @@ function  dynamic_block_latest_posts($attr)
 				</div>
 				<div class="post__content">
 					<h2 class="post__title">
-						<a href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
+						<a class= "post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
 					</h2>
 					<div class="post__meta">
 						<span class="post__author">By <?php echo $post['author']; ?></span>
