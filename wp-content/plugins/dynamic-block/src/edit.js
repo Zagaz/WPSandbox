@@ -267,24 +267,34 @@ export default function Edit({ attributes, setAttributes }) {
           return (
             <li key={post.id}>
              {/* Render author by name  */}
-
-              {showAuthor && 
-
-              <h3>Author Name</h3>
-              
-              
-              }
-              <a href={post.link}>{post.title.rendered}</a>
+             {showFeaturedImage &&  <img src={`https://picsum.photos/300/200?random=${post.id}`} /> }
+             <br />
+              {showAuthor &&   <h3>Author Name</h3>}
               <br />
-              <RawHTML>{post.excerpt.rendered}</RawHTML>
+              {showTitle &&  <h2>{post.title.rendered}</h2>}
               <br />
-              <RawHTML>
+              {showExcerpt &&  <RawHTML>{post.excerpt.rendered}</RawHTML> }
+              <br />
+              {showDate &&               <RawHTML>
                 {__("Published on", "dynamic-block")}{" "}
                 {format(
                   __experimentalGetSettings().formats.date,
                   dateI18n(__experimentalGetSettings().formats.date, post.date)
                 )}
-              </RawHTML>
+              </RawHTML>}
+              {showCategories && 
+              <p>
+                {__("Categories", "dynamic-block")}:{" "}
+                {post.categories.map((category) => {
+                  return (
+                    <a href={category.link} key={category.id}>
+                      {category.name}
+                    </a>
+                  );
+                })} 
+              </p>
+            
+              }
               <br />
               
             </li>
