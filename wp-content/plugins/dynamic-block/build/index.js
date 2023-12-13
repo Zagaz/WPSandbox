@@ -56,7 +56,9 @@ function Edit({
     allAuthors,
     showFeaturedImage,
     showExcerpt,
-    showAuthor
+    showAuthor,
+    showDate,
+    showCategories
   } = attributes;
 
   // Events
@@ -93,6 +95,16 @@ function Edit({
   function onChangeShowAuthor() {
     setAttributes({
       showAuthor: !showAuthor
+    });
+  }
+  function onChangeShowDate() {
+    setAttributes({
+      showDate: !showDate
+    });
+  }
+  function onChangeShowCategories() {
+    setAttributes({
+      showCategories: !showCategories
     });
   }
 
@@ -244,6 +256,20 @@ function Edit({
     label: "Show Author",
     checked: showAuthor,
     onChange: onChangeShowAuthor
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    heading: "Date",
+    description: "Show the date"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+    label: "Show Date",
+    checked: showDate,
+    onChange: onChangeShowDate
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    heading: "Categories",
+    description: "Show the categories"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+    label: "Show Categories",
+    checked: showCategories,
+    onChange: onChangeShowCategories
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " List of posts"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts.map(post => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: post.id
@@ -413,7 +439,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true},"showFeaturedImage":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showAuthor":{"type":"boolean","default":false}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true},"showFeaturedImage":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showAuthor":{"type":"boolean","default":false},"showDate":{"type":"boolean","default":false},"showCategories":{"type":"boolean","default":false}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

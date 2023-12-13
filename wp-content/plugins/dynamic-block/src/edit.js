@@ -24,7 +24,7 @@ import React from "react";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage , showExcerpt , showAuthor } = attributes;
+  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage , showExcerpt , showAuthor , showDate , showCategories} = attributes;
 
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
@@ -49,6 +49,14 @@ export default function Edit({ attributes, setAttributes }) {
   }
   function onChangeShowAuthor() {
     setAttributes({ showAuthor: ! showAuthor });
+   
+  }
+  function onChangeShowDate() {
+    setAttributes({ showDate: ! showDate });
+   
+  }
+  function onChangeShowCategories() {
+    setAttributes({ showCategories: ! showCategories });
    
   }
 
@@ -215,6 +223,22 @@ export default function Edit({ attributes, setAttributes }) {
           onChange={onChangeShowAuthor}
         />
       </PanelRow>
+      <PanelRow heading="Date" description="Show the date">
+        <ToggleControl
+          label="Show Date"
+          checked={showDate}
+          onChange={onChangeShowDate}
+        />
+      </PanelRow>
+      <PanelRow heading="Categories" description="Show the categories">
+        <ToggleControl
+          label="Show Categories"
+          checked={showCategories}
+          onChange={onChangeShowCategories}
+        />
+      </PanelRow>
+      
+
 			
 			
 		</PanelBody>

@@ -38,7 +38,16 @@
 		"showAuthor": {
 			"type": "boolean",
 			"default": false
+		},
+		"showDate": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCategories": {
+			"type": "boolean",
+			"default": false
 		}
+
 
 
 	},

@@ -33,6 +33,8 @@ function  dynamic_block_latest_posts($attr)
 	$showFeaturedImage = isset($attr['showFeaturedImage']) ? $attr['showFeaturedImage'] : false;
 	$showExcerpt = isset($attr['showExcerpt']) ? $attr['showExcerpt'] : false;
 	$showAuthor = isset($attr['showAuthor']) ? $attr['showAuthor'] : false;
+	$showDate = isset($attr['showDate']) ? $attr['showDate'] : false;
+	$showCategories = isset($attr['showCategories']) ? $attr['showCategories'] : false;
 	// CATEGORY ==============
 	$category = (isset($attr['category']) && !empty($attr['category'])) ? $attr['category'] : [];
 	
@@ -127,7 +129,9 @@ function  dynamic_block_latest_posts($attr)
 						<?php if ($showAuthor) { ?>
 						<span class="post__author">By <?php echo $post['author']; ?></span>
 						<?php } ?>
+						<?php if ($showDate) { ?>
 						<span class="post__date"><?php echo $post['date']; ?></span>
+						<?php } ?>
 					</div>
 					<?php } ?>
 
