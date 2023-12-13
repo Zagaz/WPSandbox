@@ -58,14 +58,18 @@ function Edit({
     showExcerpt,
     showAuthor,
     showDate,
-    showCategories
+    showCategories,
+    showTitle
   } = attributes;
 
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
-    setAttributes({
-      postsPerPage: newpostsPerPage
-    });
+    const parsedValue = parseInt(newpostsPerPage, 10);
+    if (!isNaN(parsedValue) && parsedValue > 0) {
+      setAttributes({
+        postsPerPage: parsedValue
+      });
+    }
   }
   function onChangeOrder(newOrder) {
     setAttributes({
@@ -105,6 +109,11 @@ function Edit({
   function onChangeShowCategories() {
     setAttributes({
       showCategories: !showCategories
+    });
+  }
+  function onChangeShowTitle() {
+    setAttributes({
+      showTitle: !showTitle
     });
   }
 
@@ -237,7 +246,8 @@ function Edit({
     title: "Posts Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Featured Image",
-    description: "Show the featured image"
+    description: "Show the featured image",
+    initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
     label: "Show Featured Image",
     checked: showFeaturedImage,
@@ -263,6 +273,13 @@ function Edit({
     label: "Show Date",
     checked: showDate,
     onChange: onChangeShowDate
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    heading: "Title",
+    description: "Show the title"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+    label: "Show Title",
+    checked: showTitle,
+    onChange: onChangeShowTitle
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Categories",
     description: "Show the categories"
@@ -439,7 +456,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true},"showFeaturedImage":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showAuthor":{"type":"boolean","default":false},"showDate":{"type":"boolean","default":false},"showCategories":{"type":"boolean","default":false}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true},"showFeaturedImage":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showAuthor":{"type":"boolean","default":false},"showDate":{"type":"boolean","default":false},"showCategories":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":true}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

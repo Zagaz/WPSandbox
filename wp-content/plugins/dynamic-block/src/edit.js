@@ -24,11 +24,14 @@ import React from "react";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage , showExcerpt , showAuthor , showDate , showCategories} = attributes;
+  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage , showExcerpt , showAuthor , showDate , showCategories, showTitle} = attributes;
 
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
-    setAttributes({ postsPerPage: newpostsPerPage });
+    const parsedValue = parseInt(newpostsPerPage, 10);
+    if (!isNaN(parsedValue) && parsedValue > 0) {
+      setAttributes({ postsPerPage: parsedValue });
+    }
   }
   function onChangeOrder(newOrder) {
     setAttributes({ order: newOrder });
@@ -59,6 +62,11 @@ export default function Edit({ attributes, setAttributes }) {
     setAttributes({ showCategories: ! showCategories });
    
   }
+  function onChangeShowTitle() {
+    setAttributes({ showTitle: ! showTitle });
+   
+  }
+
 
 
 
@@ -132,8 +140,13 @@ export default function Edit({ attributes, setAttributes }) {
               )}
             >
 			{/** insert a title for the input  */}
+  
 			<strong>
 			<label for="postsPerPage">Number of Posts</label></strong>
+  
+
+            
+
               <input type="number" value={postsPerPage} id="postsPerPage" min="1" style={{ maxWidth: "50%" }}
 		          onChange={(event) => {
                   onChangepostsPerPage(event.target.value);
@@ -200,9 +213,11 @@ export default function Edit({ attributes, setAttributes }) {
               />
             </PanelRow>
           </PanelBody>
+          {/* //================================================================================================ */}
 
 		<PanelBody title="Posts Settings">
-      <PanelRow heading="Featured Image" description="Show the featured image">
+      <PanelRow heading="Featured Image" description="Show the featured image"  initialOpen={false}
+      >
         <ToggleControl
           label="Show Featured Image"
           checked={showFeaturedImage}
@@ -230,6 +245,13 @@ export default function Edit({ attributes, setAttributes }) {
           onChange={onChangeShowDate}
         />
       </PanelRow>
+      <PanelRow heading="Title" description="Show the title">
+        <ToggleControl
+          label="Show Title"
+          checked={showTitle}
+          onChange={onChangeShowTitle}
+        />
+      </PanelRow>
       <PanelRow heading="Categories" description="Show the categories">
         <ToggleControl
           label="Show Categories"
@@ -237,10 +259,6 @@ export default function Edit({ attributes, setAttributes }) {
           onChange={onChangeShowCategories}
         />
       </PanelRow>
-      
-
-			
-			
 		</PanelBody>
         </Panel>
       </InspectorControls>

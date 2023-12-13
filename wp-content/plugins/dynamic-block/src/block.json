@@ -46,6 +46,10 @@
 		"showCategories": {
 			"type": "boolean",
 			"default": false
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
 		}
 
 

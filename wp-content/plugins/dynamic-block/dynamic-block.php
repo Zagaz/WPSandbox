@@ -30,14 +30,17 @@ function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = (isset($attr['postsPerPage']) && !empty($attr['postsPerPage'])) ? $attr['postsPerPage'] : 1;
 	$order = isset($attr['order']) ? strtoupper($attr['order']) : 'DESC';
+
+	// SHOW ITEMS IN POST ==============
 	$showFeaturedImage = isset($attr['showFeaturedImage']) ? $attr['showFeaturedImage'] : false;
+	$showTitle = isset($attr['showTitle']) ? $attr['showTitle'] : false;
 	$showExcerpt = isset($attr['showExcerpt']) ? $attr['showExcerpt'] : false;
 	$showAuthor = isset($attr['showAuthor']) ? $attr['showAuthor'] : false;
 	$showDate = isset($attr['showDate']) ? $attr['showDate'] : false;
 	$showCategories = isset($attr['showCategories']) ? $attr['showCategories'] : false;
+
 	// CATEGORY ==============
 	$category = (isset($attr['category']) && !empty($attr['category'])) ? $attr['category'] : [];
-	
 	$categories = [];
 	foreach ($category as $cat) {
 		if ($cat == 'uncategorized') {
@@ -60,7 +63,8 @@ function  dynamic_block_latest_posts($attr)
 	}
 	sort($authors);
 	$authors_string = implode(",", $authors);
-	
+
+	// QUERY ==============
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
@@ -70,7 +74,6 @@ function  dynamic_block_latest_posts($attr)
 		'author' => $authors_string,
 	);
 	$posts = get_posts($args);
-
 	$posts = array_map(function ($post) {
 		return [
 			'id' => $post->ID,
@@ -84,23 +87,6 @@ function  dynamic_block_latest_posts($attr)
 		];
 	}, $posts);
 	ob_start();
-	
-	echo '<pre>';
-	echo "Per page:";
-	echo $postsPerPage;
-	echo '<br>';
-	echo "<br>";
-	echo "Order:";
-	echo $order;
-		 echo "<br>";
-		 echo "Categories:";
-	var_dump($category);
-	echo 'Authors';
-	echo "<br>";
-	 var_dump($authors);
-	 echo '</pre>';
-	
-
 	if (empty($posts)) {
 		return 'No posts';
 	} ?>
@@ -118,11 +104,22 @@ function  dynamic_block_latest_posts($attr)
 				<div class="post__content">
 
 				<?php // The Title
-				 if ( $post['title'] && $post['link']) { ?>
+
+
+
+				 if ( $showTitle && $post['title'] && $post['link']) { ?>
 					<h2 class="post__title">
-						<a class="post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
+						<a class="post_link" href="<?php echo $post['link']; ?>">
+
+						<?php if ($post['title'] == "") {
+							echo __('No Title', 'dynamic-block');
+						} else {
+							echo $post['title'];
+						} ?>
+
+					</a>
 					</h2>
-					<?php  } ?>
+					<?php } ?>
 
 					<?php   if ($post['author'] || $post['date'])   {?>
 					<div class="post__meta">
@@ -140,9 +137,11 @@ function  dynamic_block_latest_posts($attr)
 						<?php echo $post['excerpt']; ?>
 					</div>
 					<?php } ?>
+					<?php if ($showCategories) { ?>
 					<div class="post_categories">
 						<?php echo get_the_category_list(', ', '', $post['id']); ?>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 		<?php
