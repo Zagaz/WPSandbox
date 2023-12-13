@@ -95,19 +95,23 @@ export default function Edit({ attributes, setAttributes }) {
     <div {...blockProps}>
       <InspectorControls>
         <Panel header="Post Settings">
-          <PanelBody title="Posts Query" initialOpen={true}>
+		
+          <PanelBody title="Posts Query"
+		 initialOpen={true}>
             {/* Number of Posts SELECT */}
             <PanelRow
+		  title="Number of Posts"
               heading={__("Number of Posts", "dynamic-block")}
               description={__(
                 "How many posts should be displayed?",
                 "dynamic-block"
               )}
             >
-              <input
-                type="number"
-                value={postsPerPage}
-                onChange={(event) => {
+			{/** insert a title for the input  */}
+			<strong>
+			<label for="postsPerPage">Number of Posts</label></strong>
+              <input type="number" value={postsPerPage} id="postsPerPage" style={{ maxWidth: "50%" }}
+		          onChange={(event) => {
                   onChangepostsPerPage(event.target.value);
                 }}
               />

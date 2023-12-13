@@ -125,11 +125,18 @@ function Edit({
     title: "Posts Query",
     initialOpen: true
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    title: "Number of Posts",
     heading: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Number of Posts", "dynamic-block"),
     description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("How many posts should be displayed?", "dynamic-block")
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    for: "postsPerPage"
+  }, "Number of Posts")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "number",
     value: postsPerPage,
+    id: "postsPerPage",
+    style: {
+      maxWidth: "50%"
+    },
     onChange: event => {
       onChangepostsPerPage(event.target.value);
     }
