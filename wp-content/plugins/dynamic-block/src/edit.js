@@ -24,7 +24,7 @@ import React from "react";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage } = attributes;
+  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage , showExcerpt , showAuthor } = attributes;
 
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
@@ -41,8 +41,17 @@ export default function Edit({ attributes, setAttributes }) {
   }
   function onChangeShowFeaturedImage() {
     setAttributes({ showFeaturedImage: ! showFeaturedImage });
-    alert (newShowFeaturedImage);
+  
   }
+  function onChangeShowExcerpt() {
+    setAttributes({ showExcerpt: ! showExcerpt });
+   
+  }
+  function onChangeShowAuthor() {
+    setAttributes({ showAuthor: ! showAuthor });
+   
+  }
+
 
 
   //Posts
@@ -190,6 +199,20 @@ export default function Edit({ attributes, setAttributes }) {
           label="Show Featured Image"
           checked={showFeaturedImage}
           onChange={onChangeShowFeaturedImage}
+        />
+      </PanelRow>
+      <PanelRow heading="Excerpt" description="Show the excerpt">
+        <ToggleControl
+          label="Show Excerpt"
+          checked={showExcerpt}
+          onChange={onChangeShowExcerpt}
+        />
+      </PanelRow>
+      <PanelRow heading="Author" description="Show the author">
+        <ToggleControl
+          label="Show Author"
+          checked={showAuthor}
+          onChange={onChangeShowAuthor}
         />
       </PanelRow>
 			

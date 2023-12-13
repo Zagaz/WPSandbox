@@ -54,7 +54,9 @@ function Edit({
     category,
     author,
     allAuthors,
-    showFeaturedImage
+    showFeaturedImage,
+    showExcerpt,
+    showAuthor
   } = attributes;
 
   // Events
@@ -82,7 +84,16 @@ function Edit({
     setAttributes({
       showFeaturedImage: !showFeaturedImage
     });
-    alert(newShowFeaturedImage);
+  }
+  function onChangeShowExcerpt() {
+    setAttributes({
+      showExcerpt: !showExcerpt
+    });
+  }
+  function onChangeShowAuthor() {
+    setAttributes({
+      showAuthor: !showAuthor
+    });
   }
 
   //Posts
@@ -219,6 +230,20 @@ function Edit({
     label: "Show Featured Image",
     checked: showFeaturedImage,
     onChange: onChangeShowFeaturedImage
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    heading: "Excerpt",
+    description: "Show the excerpt"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+    label: "Show Excerpt",
+    checked: showExcerpt,
+    onChange: onChangeShowExcerpt
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    heading: "Author",
+    description: "Show the author"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
+    label: "Show Author",
+    checked: showAuthor,
+    onChange: onChangeShowAuthor
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " List of posts"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts.map(post => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: post.id
@@ -388,7 +413,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true},"showFeaturedImage":{"type":"boolean","default":false}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true},"showFeaturedImage":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showAuthor":{"type":"boolean","default":false}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

@@ -31,6 +31,8 @@ function  dynamic_block_latest_posts($attr)
 	$postsPerPage = (isset($attr['postsPerPage']) && !empty($attr['postsPerPage'])) ? $attr['postsPerPage'] : 1;
 	$order = isset($attr['order']) ? strtoupper($attr['order']) : 'DESC';
 	$showFeaturedImage = isset($attr['showFeaturedImage']) ? $attr['showFeaturedImage'] : false;
+	$showExcerpt = isset($attr['showExcerpt']) ? $attr['showExcerpt'] : false;
+	$showAuthor = isset($attr['showAuthor']) ? $attr['showAuthor'] : false;
 	// CATEGORY ==============
 	$category = (isset($attr['category']) && !empty($attr['category'])) ? $attr['category'] : [];
 	
@@ -116,12 +118,16 @@ function  dynamic_block_latest_posts($attr)
 						<a class="post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
 					</h2>
 					<div class="post__meta">
+						<?php if ($showAuthor) { ?>
 						<span class="post__author">By <?php echo $post['author']; ?></span>
+						<?php } ?>
 						<span class="post__date"><?php echo $post['date']; ?></span>
 					</div>
+					<?php if ($showExcerpt) { ?>
 					<div class="post__excerpt">
 						<?php echo $post['excerpt']; ?>
 					</div>
+					<?php } ?>
 					<div class="post_categories">
 						<?php echo get_the_category_list(', ', '', $post['id']); ?>
 					</div>
