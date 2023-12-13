@@ -122,7 +122,7 @@ function  dynamic_block_latest_posts($attr)
 					</h2>
 					<?php  } ?>
 
-					<?php   if ($post['author'] && $post['date'])   {?>
+					<?php   if ($post['author'] || $post['date'])   {?>
 					<div class="post__meta">
 						<?php if ($showAuthor) { ?>
 						<span class="post__author">By <?php echo $post['author']; ?></span>
