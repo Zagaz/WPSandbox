@@ -7,6 +7,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-latest-posts-dynamic-block {
+  color: black !important;
   border: 1px dotted #f00;
   background-color: rgb(255, 255, 255);
   a-color: rgb(4, 1, 34);

@@ -13,16 +13,19 @@
 			"default": 4
 		},
 		"order": {
-			"type": "string",
+			"type": "array",
 			"default": "DESC"
 		},
 		"category": {
-			"type": "string",
-			"default": "all"
+			"type": "array"
+
 		},
 		"author":{
-			"type": "string",
-			"default": "all"
+			"type": "array"
+		},
+		"allAuthors": {
+			"type": "boolean",
+			"default": true
 		}
 
 	},

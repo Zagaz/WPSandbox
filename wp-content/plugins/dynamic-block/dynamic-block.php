@@ -30,12 +30,46 @@ function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
+	$category = $attr['category'];
+	
+	$categories = [];
+	foreach ($category as $cat) {
+		// if $cat == 'uncategorized' then skip
+		if ($cat == 'uncategorized') {
+			continue;
+		}
 
+		array_push($categories, get_the_category_by_ID($cat));
+	}
+	$categories_string = implode(",", $categories);
+	
+	// authors
+	$author = $attr['author'];
+	$allAuthors = $attr['allAuthors'];
+
+	//In case that allAuthors is true then get all authors
+
+	$authors = [];
+	if ($allAuthors) {
+		$author = get_users();
+		$authors = [];
+	} 
+	
+	foreach ($author as $auth) {
+		array_push($authors, get_the_author_meta('ID', $auth));
+	}
+	//  sort authors in alphabetich order
+	sort($authors);
+
+	$authors_string = implode(",", $authors);
+	
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
 		'order' => $order,
 		'orderby' => 'date',
+		'category_name' =>  $categories_string,
+		'author' => $authors_string,
 	);
 	$posts = get_posts($args);
 
@@ -52,9 +86,17 @@ function  dynamic_block_latest_posts($attr)
 		];
 	}, $posts);
 	ob_start();
-	echo $postsPerPage;
-	echo $order;
 	
+	// echo $postsPerPage;
+	// echo "<br>";
+	// echo $order;
+	// echo '<pre>';
+	// var_dump($category);
+	// echo '</pre>';
+	 echo '<pre>';
+	 var_dump($authors);
+	 echo '</pre>';
+
 	if (empty($posts)) {
 		return 'No posts';
 	} ?>
@@ -66,7 +108,7 @@ function  dynamic_block_latest_posts($attr)
 				</div>
 				<div class="post__content">
 					<h2 class="post__title">
-						<a class= "post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
+						<a class="post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
 					</h2>
 					<div class="post__meta">
 						<span class="post__author">By <?php echo $post['author']; ?></span>
@@ -74,6 +116,9 @@ function  dynamic_block_latest_posts($attr)
 					</div>
 					<div class="post__excerpt">
 						<?php echo $post['excerpt']; ?>
+					</div>
+					<div class="post_categories">
+						<?php echo get_the_category_list(', ', '', $post['id']); ?>
 					</div>
 				</div>
 			</div>
@@ -83,8 +128,6 @@ function  dynamic_block_latest_posts($attr)
 <?php
 	return (ob_get_clean());
 }
-
-
 
 function dynamic_block_dynamic_block_block_init()
 {

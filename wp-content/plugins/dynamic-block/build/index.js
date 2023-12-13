@@ -36,7 +36,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Edit function for the dynamic block.
  *
@@ -53,7 +52,8 @@ function Edit({
     postsPerPage,
     order,
     category,
-    author
+    author,
+    allAuthors
   } = attributes;
 
   // Events
@@ -78,92 +78,139 @@ function Edit({
     });
   }
 
-  //End Events
-
+  //Posts
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    return select('core').getEntityRecords('postType', 'post', {
-      'per_page': postsPerPage
+    return select("core").getEntityRecords("postType", "post", {
+      per_page: postsPerPage
     });
     [postsPerPage];
   });
-  // get all categories
+  // Categories
   const categories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    return select('core').getEntityRecords('taxonomy', 'category', {
-      'per_page': -1
-    });
+    return select("core").getEntityRecords("taxonomy", "category", {
+      per_page: -1,
+      exclude: [1]
+    }, []);
   });
-  // get all authors
-  const authors = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    return select('core').getEntityRecords('taxonomy', 'author', {
-      'per_page': -1
-    });
-  });
-  // order
+  // Authors
 
-  console.log(posts);
+  if (allAuthors) {
+    console.log("All authors is true");
+  } else {
+    console.log("All authors is false");
+  }
+  const authors = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
+    return select("core").getUsers({
+      // authors only
+      who: "authors",
+      per_page: -1,
+      exclude: [1]
+    }, []);
+  });
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-  7;
   if (!posts) {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, null), ";", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Loading...')));
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, null), ";", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Loading...", "dynamic-block")));
   }
   if (0 === posts.length) {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No posts'));
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No posts"));
+  }
+  if (!posts) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No posts"));
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Panel, {
-    header: "Post Settings"
+    header: "Block Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
-    title: "Number of Posts",
+    title: "Posts Query",
     initialOpen: true
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-    heading: "Number of Posts",
-    description: "How many posts should be displayed?"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
-    label: "Number of Posts",
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, " Here you can filter the parameters of the query, such as the number of posts, the order, the category and the author. "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    title: "Number of Posts",
+    heading: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Number of Posts", "dynamic-block"),
+    description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("How many posts should be displayed?", "dynamic-block")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    for: "postsPerPage"
+  }, "Number of Posts")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "number",
     value: postsPerPage,
-    onChange: onChangepostsPerPage
+    id: "postsPerPage",
+    style: {
+      maxWidth: "50%"
+    },
+    onChange: event => {
+      onChangepostsPerPage(event.target.value);
+    }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Order",
-    description: "How should the posts be ordered?"
+    description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Order of posts", "dynamic-block")
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RadioControl, {
     label: "Order",
     selected: order,
     options: [{
-      label: 'Ascending',
-      value: 'ASC'
+      label: "Ascending",
+      value: "ASC"
     }, {
-      label: 'Descending',
-      value: 'DESC'
+      label: "Descending",
+      value: "DESC"
     }],
     onChange: order => {
       setAttributes({
         order: order
       });
-      git;
     }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     heading: "Category",
     description: "Select a category"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
     label: "Category",
+    multiple: true,
     value: category,
-    options: categories.map(({
-      id,
-      name
-    }) => ({
-      label: name,
-      value: id
+    options: categories.map(category => ({
+      label: category.name,
+      value: category.id
     })),
-    onChange: onChangeCategory
+    onChange: category => {
+      setAttributes({
+        category: category
+      });
+    }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-    heading: "Order",
-    description: "How should the posts be ordered?"
+    heading: "Author",
+    description: "Select an author"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-    label: "Order",
-    checked: 'desc' === order,
-    onChange: onChangeOrder
-  }))))));
+    label: "All Authors",
+    checked: allAuthors,
+    onChange: allAuthors => {
+      setAttributes({
+        allAuthors: allAuthors
+      });
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+    className: allAuthors ? "hidden" : ""
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
+    label: "Author",
+    disabled: allAuthors,
+    description: "Select an author",
+    multiple: true,
+    value: author,
+    options: authors.map(author => ({
+      label: author.name,
+      value: author.id
+    })),
+    onChange: author => {
+      setAttributes({
+        author: author
+      });
+    }
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
+    title: "Posts Settings"
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " List of posts"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts.map(post => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      key: post.id
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: post.link
+    }, post.title.rendered), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, null, post.excerpt.rendered), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Published on", "dynamic-block"), " ", (0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.format)((0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.__experimentalGetSettings)().formats.date, (0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.dateI18n)((0,_wordpress_date__WEBPACK_IMPORTED_MODULE_5__.__experimentalGetSettings)().formats.date, post.date))));
+  })));
 }
 
 /***/ }),
@@ -326,7 +373,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"string","default":"DESC"},"category":{"type":"string","default":"all"},"author":{"type":"string","default":"all"}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latest-posts/dynamic-block","version":"0.1.0","title":"ZAGAZ - Latest Posts","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"postsPerPage":{"type":"number","default":4},"order":{"type":"array","default":"DESC"},"category":{"type":"array"},"author":{"type":"array"},"allAuthors":{"type":"boolean","default":true}},"example":{},"supports":{"html":false},"textdomain":"dynamic-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
