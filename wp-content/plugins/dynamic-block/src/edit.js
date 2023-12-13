@@ -94,11 +94,13 @@ export default function Edit({ attributes, setAttributes }) {
   return (
     <div {...blockProps}>
       <InspectorControls>
-        <Panel header="Post Settings">
+        <Panel header="Block Settings">
+		
 		
           <PanelBody title="Posts Query"
 		 initialOpen={true}>
             {/* Number of Posts SELECT */}
+		  <h3> Here you can filter the parameters of the query, such as the number of posts, the order, the category and the author. </h3>
             <PanelRow
 		  title="Number of Posts"
               heading={__("Number of Posts", "dynamic-block")}
@@ -176,6 +178,11 @@ export default function Edit({ attributes, setAttributes }) {
               />
             </PanelRow>
           </PanelBody>
+
+		<PanelBody title="Posts Settings">
+			
+			
+		</PanelBody>
         </Panel>
       </InspectorControls>
       <h1> List of posts</h1>

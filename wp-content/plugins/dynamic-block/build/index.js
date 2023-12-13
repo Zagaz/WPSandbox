@@ -120,11 +120,11 @@ function Edit({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Panel, {
-    header: "Post Settings"
+    header: "Block Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
     title: "Posts Query",
     initialOpen: true
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, " Here you can filter the parameters of the query, such as the number of posts, the order, the category and the author. "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
     title: "Number of Posts",
     heading: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Number of Posts", "dynamic-block"),
     description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("How many posts should be displayed?", "dynamic-block")
@@ -202,7 +202,9 @@ function Edit({
         author: author
       });
     }
-  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " List of posts"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts.map(post => {
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
+    title: "Posts Settings"
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " List of posts"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, posts.map(post => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: post.id
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
