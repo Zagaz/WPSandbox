@@ -67,13 +67,12 @@ export default function Edit({ attributes, setAttributes }) {
    
   }
 
-
-
-
   //Posts
   const posts = useSelect((select) => {
     return select("core").getEntityRecords("postType", "post", {
       per_page: postsPerPage,
+
+      
     });
     [postsPerPage];
   });
@@ -269,7 +268,14 @@ export default function Edit({ attributes, setAttributes }) {
              {/* Render author by name  */}
              {showFeaturedImage &&  <img src={`https://picsum.photos/300/200?random=${post.id}`} /> }
              <br />
-              {showAuthor &&   <h3>Author Name</h3>}
+              {showAuthor &&   <h3>Author:
+
+                {post.author_name}
+              </h3>
+
+         
+
+              }
               <br />
               {showTitle &&  <h2>{post.title.rendered}</h2>}
               <br />
