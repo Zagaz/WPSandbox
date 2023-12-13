@@ -10,6 +10,8 @@
   color: black !important;
   border: 1px dotted #f00;
   background-color: rgb(255, 255, 255);
+  width: -moz-fit-content;
+  width: fit-content;
   a-color: rgb(4, 1, 34);
 }
 .wp-block-latest-posts-dynamic-block a:link {
