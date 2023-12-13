@@ -114,15 +114,23 @@ function  dynamic_block_latest_posts($attr)
 			<?php } ?>
 
 				<div class="post__content">
+
+				<?php // The Title
+				 if ( $post['title'] && $post['link']) { ?>
 					<h2 class="post__title">
 						<a class="post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
 					</h2>
+					<?php  } ?>
+
+					<?php   if ($post['author'] && $post['date'])   {?>
 					<div class="post__meta">
 						<?php if ($showAuthor) { ?>
 						<span class="post__author">By <?php echo $post['author']; ?></span>
 						<?php } ?>
 						<span class="post__date"><?php echo $post['date']; ?></span>
 					</div>
+					<?php } ?>
+
 					<?php if ($showExcerpt) { ?>
 					<div class="post__excerpt">
 						<?php echo $post['excerpt']; ?>
