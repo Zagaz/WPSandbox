@@ -13,9 +13,16 @@
  *
  * @package           latest-posts
  */
+header("X-Content-Type-Options: nosniff");
+header("X-Frame-Options: SAMEORIGIN");
+header("X-XSS-Protection: 1; mode=block");
+
 
 if (!defined('ABSPATH')) {
-	exit; // Exit if accessed directly.
+	echo 'You shall not pass!';
+	// wait 5 seconsds
+	sleep(5);
+	exit; 
 }
 
 /**
@@ -28,8 +35,11 @@ if (!defined('ABSPATH')) {
 
 function  dynamic_block_latest_posts($attr)
 {
-	$postsPerPage = (isset($attr['postsPerPage']) && !empty($attr['postsPerPage'])) ? $attr['postsPerPage'] : 1;
-	$order = isset($attr['order']) ? strtoupper($attr['order']) : 'DESC';
+	$postsPerPage = $postsPerPage = (
+		isset($attr['postsPerPage']) && 
+		is_numeric($attr['postsPerPage']) && 
+		$attr['postsPerPage'] > 0) ? intval($attr['postsPerPage']) : 1;
+	$order = ( isset($attr['order']) && !is_numeric(($attr['order']) )) ? strtoupper($attr['order']) : 'DESC';
 
 	// SHOW ITEMS IN POST ==============
 	$showFeaturedImage = isset($attr['showFeaturedImage']) ? $attr['showFeaturedImage'] : false;
@@ -51,7 +61,7 @@ function  dynamic_block_latest_posts($attr)
 	$categories_string = implode(",", $categories);
 	
 	// AUTHOR ==============
-	$author = (isset($attr['author']) && !empty($attr['author'])) ? $attr['author'] : [];
+	$author = (isset($attr['author']) && !empty($attr['author']) && !is_numeric($attr['author'])) ? $attr['author'] : [];
 	$allAuthors = $attr['allAuthors'];
 	$authors = [];
 	if ($allAuthors) {
@@ -86,6 +96,7 @@ function  dynamic_block_latest_posts($attr)
 			'date' => $post->post_date,
 		];
 	}, $posts);
+
 	ob_start();
 	if (empty($posts)) {
 		return 'No posts';
@@ -97,24 +108,26 @@ function  dynamic_block_latest_posts($attr)
 
 			<?php if ($showFeaturedImage) { ?>
 				<div class="post__image">
-					<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
+					<img src="<?php echo ($post['featuredImage']); ?>" alt="<?php echo ($post['title']); ?>">
 				</div>
-			<?php } ?>
+			<?php } 
+			
+			?>
 
 				<div class="post__content">
 
-				<?php // The Title
+				<?php // The Title 
 
 
 
 				 if ( $showTitle && $post['title'] && $post['link']) { ?>
 					<h2 class="post__title">
-						<a class="post_link" href="<?php echo $post['link']; ?>">
+						<a class="post_link" href="<?php echo ($post['link']); ?>">
 
 						<?php if ($post['title'] == "") {
-							echo __('No Title', 'dynamic-block');
+							echo (__('No Title', 'dynamic-block'));
 						} else {
-							echo $post['title'];
+							echo ($post['title']);
 						} ?>
 
 					</a>
@@ -124,22 +137,22 @@ function  dynamic_block_latest_posts($attr)
 					<?php   if ($post['author'] || $post['date'])   {?>
 					<div class="post__meta">
 						<?php if ($showAuthor) { ?>
-						<span class="post__author">By <?php echo $post['author']; ?></span>
+						<span class="post__author">By <?php echo ( $post['author']); ?></span>
 						<?php } ?>
 						<?php if ($showDate) { ?>
-						<span class="post__date"><?php echo $post['date']; ?></span>
+						<span class="post__date"><?php echo ($post['date']); ?></span>
 						<?php } ?>
 					</div>
 					<?php } ?>
 
 					<?php if ($showExcerpt) { ?>
 					<div class="post__excerpt">
-						<?php echo $post['excerpt']; ?>
+						<?php echo ( $post['excerpt']); ?>
 					</div>
 					<?php } ?>
 					<?php if ($showCategories) { ?>
 					<div class="post_categories">
-						<?php echo get_the_category_list(', ', '', $post['id']); ?>
+						<?php echo ( get_the_category_list(', ', '', $post['id'])); ?>
 					</div>
 					<?php } ?>
 				</div>
