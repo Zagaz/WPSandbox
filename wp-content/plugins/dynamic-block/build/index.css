@@ -7,15 +7,22 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-latest-posts-dynamic-block {
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif !important;
   color: black !important;
-  border: 1px dotted #f00;
+  border-left: 3px solid rgb(50, 25, 173);
   background-color: rgb(255, 255, 255);
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 70%;
+  padding: 20px;
+  border-radius: 10px;
   a-color: rgb(4, 1, 34);
 }
 .wp-block-latest-posts-dynamic-block a:link {
   color: rgb(31, 23, 73);
+}
+.wp-block-latest-posts-dynamic-block li {
+  list-style-type: none;
 }
 
 /*# sourceMappingURL=index.css.map*/

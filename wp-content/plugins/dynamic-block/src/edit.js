@@ -120,10 +120,10 @@ export default function Edit({ attributes, setAttributes }) {
   if (!posts) {
     return <p>{__("No posts")}</p>;
   }
+  console.log(posts);
 
-  return (
-    <div {...blockProps}>
-      <InspectorControls>
+  return (<>
+    <InspectorControls>
         <Panel header="Block Settings">
 		
 		
@@ -143,11 +143,7 @@ export default function Edit({ attributes, setAttributes }) {
   
 			<strong>
 			<label for="postsPerPage">Number of Posts</label></strong>
-  
-
-            
-
-              <input type="number" value={postsPerPage} id="postsPerPage" min="1" style={{ maxWidth: "50%" }}
+               <input type="number" value={postsPerPage} id="postsPerPage" min="1" style={{ maxWidth: "50%" }}
 		          onChange={(event) => {
                   onChangepostsPerPage(event.target.value);
                 }}
@@ -262,11 +258,22 @@ export default function Edit({ attributes, setAttributes }) {
 		</PanelBody>
         </Panel>
       </InspectorControls>
+
+      {/* The OUTPUT============================= */}
+<div {...blockProps}>
       <h1> List of posts</h1>
       <ul>
         {posts.map((post) => {
           return (
             <li key={post.id}>
+             {/* Render author by name  */}
+
+              {showAuthor && 
+
+              <h3>Author Name</h3>
+              
+              
+              }
               <a href={post.link}>{post.title.rendered}</a>
               <br />
               <RawHTML>{post.excerpt.rendered}</RawHTML>
@@ -278,10 +285,14 @@ export default function Edit({ attributes, setAttributes }) {
                   dateI18n(__experimentalGetSettings().formats.date, post.date)
                 )}
               </RawHTML>
+              <br />
+              
             </li>
           );
         })}
       </ul>
+      <hr />
     </div>
-  );
+ 
+ </> );
 }
