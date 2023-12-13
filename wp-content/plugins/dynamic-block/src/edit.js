@@ -71,8 +71,7 @@ export default function Edit({ attributes, setAttributes }) {
   const posts = useSelect((select) => {
     return select("core").getEntityRecords("postType", "post", {
       per_page: postsPerPage,
-
-      
+      _embed: true,
     });
     [postsPerPage];
   });
@@ -260,48 +259,56 @@ export default function Edit({ attributes, setAttributes }) {
 
       {/* The OUTPUT============================= */}
 <div {...blockProps}>
-      <h1> List of posts</h1>
+    
       <ul>
         {posts.map((post) => {
           return (
             <li key={post.id}>
              {/* Render author by name  */}
-             {showFeaturedImage &&  <img src={`https://picsum.photos/300/200?random=${post.id}`} /> }
+        
+             {
+              // feature image
+              showFeaturedImage && post.featured_media > 0  ? (
+                <img
+                  src={post._embedded["wp:featuredmedia"][0].source_url}
+                  alt={post._embedded["wp:featuredmedia"][0].alt_text}
+                />
+              ) : (
+               <h1>No image available</h1>
+              )
+              
+             }
              <br />
-              {showAuthor &&   <h3>Author:
-
-                {post.author_name}
+              {showAuthor &&   <h3>Author:{post._embedded.author[0].name}
               </h3>
-
-         
-
               }
               <br />
-              {showTitle &&  <h2>{post.title.rendered}</h2>}
+              {showTitle && 
+                 <h2>
+                 <a href={post.link}>
+                   
+                   {post.title.rendered ? (  <RawHTML>{post.title.rendered}</RawHTML> ) : ( <p> No title </p> )
+         } </a>
+        </h2>   }
+                 
               <br />
               {showExcerpt &&  <RawHTML>{post.excerpt.rendered}</RawHTML> }
               <br />
-              {showDate &&               <RawHTML>
+              {showDate && <RawHTML>
                 {__("Published on", "dynamic-block")}{" "}
                 {format(
                   __experimentalGetSettings().formats.date,
                   dateI18n(__experimentalGetSettings().formats.date, post.date)
                 )}
               </RawHTML>}
-              {showCategories && 
-              <p>
-                {__("Categories", "dynamic-block")}:{" "}
-                {post.categories.map((category) => {
-                  return (
-                    <a href={category.link} key={category.id}>
-                      {category.name}
-                    </a>
-                  );
-                })} 
-              </p>
-            
-              }
+             
               <br />
+              {
+
+                
+              }
+         
+              
               
             </li>
           );
