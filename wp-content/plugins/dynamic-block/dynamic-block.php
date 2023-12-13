@@ -87,13 +87,18 @@ function  dynamic_block_latest_posts($attr)
 	}, $posts);
 	ob_start();
 	
-	// echo $postsPerPage;
-	// echo "<br>";
-	// echo $order;
-	// echo '<pre>';
-	// var_dump($category);
-	// echo '</pre>';
-	 echo '<pre>';
+	echo '<pre>';
+	echo "Per page:";
+	echo $postsPerPage;
+	echo '<br>';
+	echo "<br>";
+	echo "Order:";
+	echo $order;
+		 echo "<br>";
+		 echo "Categories:";
+	var_dump($category);
+	echo 'Authors';
+	echo "<br>";
 	 var_dump($authors);
 	 echo '</pre>';
 
