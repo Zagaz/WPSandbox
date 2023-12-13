@@ -30,7 +30,7 @@ function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
-	$category = $attr['category'];
+	$category = (isset($attr['category']) && !empty($attr['category'])) ? $attr['category'] : [];
 	
 	$categories = [];
 	foreach ($category as $cat) {
@@ -44,7 +44,7 @@ function  dynamic_block_latest_posts($attr)
 	$categories_string = implode(",", $categories);
 	
 	// authors
-	$author = $attr['author'];
+	$author = (isset($attr['author']) && !empty($attr['author'])) ? $attr['author'] : [];
 	$allAuthors = $attr['allAuthors'];
 
 	//In case that allAuthors is true then get all authors
