@@ -20,8 +20,11 @@
       "type": "array"
     },
     "author": {
-      "type": "string",
-      "default": "all"
+      "type": "array"
+    },
+    "allAuthors": {
+      "type": "boolean",
+      "default": true
     }
   },
   "example": {},

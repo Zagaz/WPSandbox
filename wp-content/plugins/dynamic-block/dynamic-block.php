@@ -31,6 +31,7 @@ function  dynamic_block_latest_posts($attr)
 	$postsPerPage = $attr['postsPerPage'];
 	$order = strtoupper($attr['order']);
 	$category = $attr['category'];
+	
 	$categories = [];
 	foreach ($category as $cat) {
 		// if $cat == 'uncategorized' then skip
@@ -40,17 +41,35 @@ function  dynamic_block_latest_posts($attr)
 
 		array_push($categories, get_the_category_by_ID($cat));
 	}
-	// remove empty values
-
-
 	$categories_string = implode(",", $categories);
+	
+	// authors
+	$author = $attr['author'];
+	$allAuthors = $attr['allAuthors'];
 
+	//In case that allAuthors is true then get all authors
+
+	$authors = [];
+	if ($allAuthors) {
+		$author = get_users();
+		$authors = [];
+	} 
+	
+	foreach ($author as $auth) {
+		array_push($authors, get_the_author_meta('ID', $auth));
+	}
+	//  sort authors in alphabetich order
+	sort($authors);
+
+	$authors_string = implode(",", $authors);
+	
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $postsPerPage,
 		'order' => $order,
 		'orderby' => 'date',
-		'category_name' =>  $categories_string
+		'category_name' =>  $categories_string,
+		'author' => $authors_string,
 	);
 	$posts = get_posts($args);
 
@@ -64,16 +83,19 @@ function  dynamic_block_latest_posts($attr)
 			'featuredImage' => get_the_post_thumbnail_url($post->ID),
 			'author' => get_the_author_meta('display_name', $post->post_author),
 			'date' => $post->post_date,
-
 		];
 	}, $posts);
 	ob_start();
-	echo $postsPerPage;
-	echo "<br>";
-	echo $order;
-	echo '<pre>';
-	var_dump($category);
-	echo '</pre>';
+	
+	// echo $postsPerPage;
+	// echo "<br>";
+	// echo $order;
+	// echo '<pre>';
+	// var_dump($category);
+	// echo '</pre>';
+	 echo '<pre>';
+	 var_dump($authors);
+	 echo '</pre>';
 
 	if (empty($posts)) {
 		return 'No posts';
@@ -97,8 +119,6 @@ function  dynamic_block_latest_posts($attr)
 					</div>
 					<div class="post_categories">
 						<?php echo get_the_category_list(', ', '', $post['id']); ?>
-
-
 					</div>
 				</div>
 			</div>
@@ -108,8 +128,6 @@ function  dynamic_block_latest_posts($attr)
 <?php
 	return (ob_get_clean());
 }
-
-
 
 function dynamic_block_dynamic_block_block_init()
 {
