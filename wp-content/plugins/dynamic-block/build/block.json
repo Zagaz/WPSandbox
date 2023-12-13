@@ -25,6 +25,10 @@
     "allAuthors": {
       "type": "boolean",
       "default": true
+    },
+    "hasFeaturedImage": {
+      "type": "boolean",
+      "default": true
     }
   },
   "example": {},

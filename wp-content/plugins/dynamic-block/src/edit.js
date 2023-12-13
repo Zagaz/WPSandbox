@@ -24,7 +24,7 @@ import React from "react";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-  const { postsPerPage, order, category, author, allAuthors } = attributes;
+  const { postsPerPage, order, category, author, allAuthors , hasFeaturedImage } = attributes;
 
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
@@ -112,7 +112,7 @@ export default function Edit({ attributes, setAttributes }) {
 			{/** insert a title for the input  */}
 			<strong>
 			<label for="postsPerPage">Number of Posts</label></strong>
-              <input type="number" value={postsPerPage} id="postsPerPage" style={{ maxWidth: "50%" }}
+              <input type="number" value={postsPerPage} id="postsPerPage" min="1" style={{ maxWidth: "50%" }}
 		          onChange={(event) => {
                   onChangepostsPerPage(event.target.value);
                 }}
@@ -180,6 +180,15 @@ export default function Edit({ attributes, setAttributes }) {
           </PanelBody>
 
 		<PanelBody title="Posts Settings">
+      <PanelRow heading="Featured Image" description="Show the featured image">
+        <ToggleControl
+          label="Show Featured Image"
+          checked={hasFeaturedImage}
+          onChange={(hasFeaturedImage) => {
+            setAttributes({ hasFeaturedImage: hasFeaturedImage });
+          }}
+        />
+      </PanelRow>
 			
 			
 		</PanelBody>

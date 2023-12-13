@@ -28,39 +28,33 @@ if (!defined('ABSPATH')) {
 
 function  dynamic_block_latest_posts($attr)
 {
-	$postsPerPage = $attr['postsPerPage'];
-	$order = strtoupper($attr['order']);
+	$postsPerPage = (isset($attr['postsPerPage']) && !empty($attr['postsPerPage'])) ? $attr['postsPerPage'] : 1;
+	$order = isset($attr['order']) ? strtoupper($attr['order']) : 'DESC';
+	$hasFeaturedImage = isset($attr['hasFeaturedImage']) ? $attr['hasFeaturedImage'] : false;
+	// CATEGORY ==============
 	$category = (isset($attr['category']) && !empty($attr['category'])) ? $attr['category'] : [];
 	
 	$categories = [];
 	foreach ($category as $cat) {
-		// if $cat == 'uncategorized' then skip
 		if ($cat == 'uncategorized') {
 			continue;
 		}
-
 		array_push($categories, get_the_category_by_ID($cat));
 	}
 	$categories_string = implode(",", $categories);
 	
-	// authors
+	// AUTHOR ==============
 	$author = (isset($attr['author']) && !empty($attr['author'])) ? $attr['author'] : [];
 	$allAuthors = $attr['allAuthors'];
-
-	//In case that allAuthors is true then get all authors
-
 	$authors = [];
 	if ($allAuthors) {
 		$author = get_users();
 		$authors = [];
 	} 
-	
 	foreach ($author as $auth) {
 		array_push($authors, get_the_author_meta('ID', $auth));
 	}
-	//  sort authors in alphabetich order
 	sort($authors);
-
 	$authors_string = implode(",", $authors);
 	
 	$args = array(
@@ -101,13 +95,29 @@ function  dynamic_block_latest_posts($attr)
 	echo "<br>";
 	 var_dump($authors);
 	 echo '</pre>';
+	 if ($hasFeaturedImage){
+		echo '<pre>';
+		echo "Has Featured Image:";
+		echo $hasFeaturedImage;
+		echo '</pre>';
+	 
+	 } else{
+		echo '<pre>';
+		echo "Has Featured Image:";
+		echo $hasFeaturedImage;
+		echo '</pre>';
+	 
+
+	 }
 
 	if (empty($posts)) {
 		return 'No posts';
 	} ?>
 	<div <?php echo  get_block_wrapper_attributes()  ?>>
 		<?php foreach ($posts as $post) { ?>
+
 			<div class="post__card">
+				
 				<div class="post__image">
 					<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
 				</div>
