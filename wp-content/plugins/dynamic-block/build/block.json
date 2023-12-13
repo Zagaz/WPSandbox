@@ -26,9 +26,9 @@
       "type": "boolean",
       "default": true
     },
-    "hasFeaturedImage": {
+    "showFeaturedImage": {
       "type": "boolean",
-      "default": true
+      "default": false
     }
   },
   "example": {},

@@ -24,7 +24,7 @@ import React from "react";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-  const { postsPerPage, order, category, author, allAuthors , hasFeaturedImage } = attributes;
+  const { postsPerPage, order, category, author, allAuthors , showFeaturedImage } = attributes;
 
   // Events
   function onChangepostsPerPage(newpostsPerPage) {
@@ -39,6 +39,11 @@ export default function Edit({ attributes, setAttributes }) {
   function onChangeAuthor(newAuthor) {
     setAttributes({ author: newAuthor });
   }
+  function onChangeShowFeaturedImage() {
+    setAttributes({ showFeaturedImage: ! showFeaturedImage });
+    alert (newShowFeaturedImage);
+  }
+
 
   //Posts
   const posts = useSelect((select) => {
@@ -183,10 +188,8 @@ export default function Edit({ attributes, setAttributes }) {
       <PanelRow heading="Featured Image" description="Show the featured image">
         <ToggleControl
           label="Show Featured Image"
-          checked={hasFeaturedImage}
-          onChange={(hasFeaturedImage) => {
-            setAttributes({ hasFeaturedImage: hasFeaturedImage });
-          }}
+          checked={showFeaturedImage}
+          onChange={onChangeShowFeaturedImage}
         />
       </PanelRow>
 			

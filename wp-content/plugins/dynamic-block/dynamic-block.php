@@ -30,7 +30,7 @@ function  dynamic_block_latest_posts($attr)
 {
 	$postsPerPage = (isset($attr['postsPerPage']) && !empty($attr['postsPerPage'])) ? $attr['postsPerPage'] : 1;
 	$order = isset($attr['order']) ? strtoupper($attr['order']) : 'DESC';
-	$hasFeaturedImage = isset($attr['hasFeaturedImage']) ? $attr['hasFeaturedImage'] : false;
+	$showFeaturedImage = isset($attr['showFeaturedImage']) ? $attr['showFeaturedImage'] : false;
 	// CATEGORY ==============
 	$category = (isset($attr['category']) && !empty($attr['category'])) ? $attr['category'] : [];
 	
@@ -95,20 +95,7 @@ function  dynamic_block_latest_posts($attr)
 	echo "<br>";
 	 var_dump($authors);
 	 echo '</pre>';
-	 if ($hasFeaturedImage){
-		echo '<pre>';
-		echo "Has Featured Image:";
-		echo $hasFeaturedImage;
-		echo '</pre>';
-	 
-	 } else{
-		echo '<pre>';
-		echo "Has Featured Image:";
-		echo $hasFeaturedImage;
-		echo '</pre>';
-	 
-
-	 }
+	
 
 	if (empty($posts)) {
 		return 'No posts';
@@ -117,10 +104,13 @@ function  dynamic_block_latest_posts($attr)
 		<?php foreach ($posts as $post) { ?>
 
 			<div class="post__card">
-				
+
+			<?php if ($showFeaturedImage) { ?>
 				<div class="post__image">
 					<img src="<?php echo $post['featuredImage']; ?>" alt="<?php echo $post['title']; ?>">
 				</div>
+			<?php } ?>
+
 				<div class="post__content">
 					<h2 class="post__title">
 						<a class="post_link" href="<?php echo $post['link']; ?>"><?php echo $post['title']; ?></a>
